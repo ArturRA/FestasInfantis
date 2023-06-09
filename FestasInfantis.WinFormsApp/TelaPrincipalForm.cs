@@ -1,4 +1,7 @@
+using FestasInfantis.Dominio.ModuloItemTema;
 using FestasInfantis.Infra.Dados.Arquivo.Compartilhado;
+using FestasInfantis.Infra.Dados.Arquivo.ModuloItemTema;
+using FestasInfantis.WinFormsApp.ModuloItemTema;
 
 namespace FestasInfantis.WinFormsApp
 {
@@ -12,8 +15,7 @@ namespace FestasInfantis.WinFormsApp
         //private IRepositorioCategoria RepositorioCategoria { get; set; }
         //private IRepositorioCompromisso RepositorioCompromisso { get; set; }
         //private IRepositorioContato RepositorioContato { get; set; }
-        //private IRepositorioDespesa RepositorioDespesa { get; set; }
-        //private IRepositorioTarefa RepositorioTarefa { get; set; }
+        private IRepositorioItemTema RepositorioItemTema { get; set; }
 
 
 
@@ -29,8 +31,7 @@ namespace FestasInfantis.WinFormsApp
             //RepositorioCategoria = new RepositorioCategoriaEmArquivo(ContextoDados);
             //RepositorioCompromisso = new RepositorioCompromissoEmArquivo(ContextoDados);
             //RepositorioContato = new RepositorioContatoEmArquivo(ContextoDados);
-            //RepositorioDespesa = new RepositorioDespesaEmArquivo(ContextoDados);
-            //RepositorioTarefa = new RepositorioTarefaEmArquivo(ContextoDados);
+            RepositorioItemTema= new RepositorioItemTemaEmArquivo(ContextoDados);
         }
 
         public void AtualizarToolStrip(string text)
@@ -61,7 +62,7 @@ namespace FestasInfantis.WinFormsApp
 
         private void itensTemaMenuItem_Click(object sender, EventArgs e)
         {
-            //Controlador = new ControladorTarefa(RepositorioTarefa);
+            Controlador = new ControladorItemTema(RepositorioItemTema);
 
             ConfigurarTelaPrincipal(Controlador);
         }

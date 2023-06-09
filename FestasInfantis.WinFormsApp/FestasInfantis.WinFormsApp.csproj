@@ -12,7 +12,6 @@
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloTema\" />
     <Folder Include="ModuloAluguel\" />
-    <Folder Include="ModuloItemTema\" />
   </ItemGroup>
 
   <ItemGroup>

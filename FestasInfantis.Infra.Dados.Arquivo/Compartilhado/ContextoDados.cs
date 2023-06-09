@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
+using FestasInfantis.Dominio.ModuloItemTema;
 
 namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
 {
@@ -7,19 +8,17 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
     {
         private const string PATH_NOME_ARQUIVO = "Compartilhado\\e-AgendaDados.json";
         private FileInfo fileInfo = new FileInfo(PATH_NOME_ARQUIVO);
-        //public List<EntidadeCategoria> Categorias { get; set; }
-        //public List<EntidadeCompromisso> Compromissos { get; set; }
-        //public List<EntidadeContato> Contatos { get; set; }
-        //public List<EntidadeDespesa> Despesa { get; set; }
-        //public List<EntidadeTarefa> Tarefas { get; set; }
+        //public List<EntidadeAluguel> Categorias { get; set; }
+        //public List<EntidadeCliente> Compromissos { get; set; }
+        //public List<EntidadeTema> Contatos { get; set; }
+        public List<EntidadeItemTema> ItensTemas { get; set; }
 
         public ContextoDados()
         {
-            //Categorias = new List<EntidadeCategoria>();
-            //Compromissos = new List<EntidadeCompromisso>();
-            //Contatos = new List<EntidadeContato>();
-            //Despesa = new List<EntidadeDespesa>();
-            //Tarefas = new List<EntidadeTarefa>();
+            //Categorias = new List<EntidadeAluguel>();
+            //Compromissos = new List<EntidadeCliente>();
+            //Contatos = new List<EntidadeTema>();
+            ItensTemas = new List<EntidadeItemTema>();
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -52,8 +51,7 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
                     //this.Categorias = ctx.Categorias;
                     //this.Compromissos = ctx.Compromissos;
                     //this.Contatos = ctx.Contatos;
-                    //this.Despesa = ctx.Despesa;
-                    //this.Tarefas = ctx.Tarefas;
+                    this.ItensTemas = ctx.ItensTemas;
                 }
             }
         }
