@@ -12,10 +12,10 @@ namespace FestasInfantis.WinFormsApp
         private Controlador Controlador { get; set; }
 
         private ContextoDados ContextoDados { get; set; } = new ContextoDados(carregarDados: true);
-        //private IRepositorioCategoria RepositorioCategoria { get; set; }
-        //private IRepositorioCompromisso RepositorioCompromisso { get; set; }
-        //private IRepositorioContato RepositorioContato { get; set; }
+        //private IRepositorioCategoria RepositorioCategoria { get; set; }   Aluguel
+        //private IRepositorioCompromisso RepositorioCompromisso { get; set; }     Cliente
         private IRepositorioItemTema RepositorioItemTema { get; set; }
+        //private IRepositorioContato RepositorioContato { get; set; }    Tema
 
 
 
@@ -28,10 +28,10 @@ namespace FestasInfantis.WinFormsApp
 
         private void ConfigurarRepositorios()
         {
-            //RepositorioCategoria = new RepositorioCategoriaEmArquivo(ContextoDados);
-            //RepositorioCompromisso = new RepositorioCompromissoEmArquivo(ContextoDados);
-            //RepositorioContato = new RepositorioContatoEmArquivo(ContextoDados);
+            //RepositorioCategoria = new RepositorioCategoriaEmArquivo(ContextoDados);      Aluguel
+            //RepositorioCompromisso = new RepositorioCompromissoEmArquivo(ContextoDados);    Cliente
             RepositorioItemTema= new RepositorioItemTemaEmArquivo(ContextoDados);
+            //RepositorioContato = new RepositorioContatoEmArquivo(ContextoDados);     Tema
         }
 
         public void AtualizarToolStrip(string text)
@@ -119,6 +119,6 @@ namespace FestasInfantis.WinFormsApp
         private void btnAdicionarItens_Click(object sender, EventArgs e)
         {
             Controlador.AdicionarItens();
-        }   
+        }
     }
 }

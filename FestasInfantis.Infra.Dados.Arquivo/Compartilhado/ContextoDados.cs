@@ -8,17 +8,17 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
     {
         private const string PATH_NOME_ARQUIVO = "Compartilhado\\e-AgendaDados.json";
         private FileInfo fileInfo = new FileInfo(PATH_NOME_ARQUIVO);
-        //public List<EntidadeAluguel> Categorias { get; set; }
-        //public List<EntidadeCliente> Compromissos { get; set; }
-        //public List<EntidadeTema> Contatos { get; set; }
+        //public List<EntidadeAluguel> Categorias { get; set; }   Aluguel
+        //public List<EntidadeCliente> Compromissos { get; set; }   Cliente
         public List<EntidadeItemTema> ItensTemas { get; set; }
+        //public List<EntidadeTema> Contatos { get; set; }     Tema
 
         public ContextoDados()
         {
-            //Categorias = new List<EntidadeAluguel>();
-            //Compromissos = new List<EntidadeCliente>();
-            //Contatos = new List<EntidadeTema>();
+            //Categorias = new List<EntidadeAluguel>();    Aluguel
+            //Compromissos = new List<EntidadeCliente>();    Cliente
             ItensTemas = new List<EntidadeItemTema>();
+            //Contatos = new List<EntidadeTema>();    Tema
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -48,10 +48,10 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
                 {
                     ContextoDados ctx = JsonSerializer.Deserialize<ContextoDados>(registrosJson, config);
 
-                    //this.Categorias = ctx.Categorias;
-                    //this.Compromissos = ctx.Compromissos;
-                    //this.Contatos = ctx.Contatos;
+                    //this.Categorias = ctx.Categorias;    Aluguel
+                    //this.Compromissos = ctx.Compromissos;    Cliente
                     this.ItensTemas = ctx.ItensTemas;
+                    //this.Contatos = ctx.Contatos;        Tema
                 }
             }
         }

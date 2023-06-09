@@ -61,7 +61,7 @@
             // 
             // cadastrosMenuItem
             // 
-            cadastrosMenuItem.DropDownItems.AddRange(new ToolStripItem[] { alugueisMenuItem, clientesMenuItem, temasMenuItem, ItensTemaMenuItem });
+            cadastrosMenuItem.DropDownItems.AddRange(new ToolStripItem[] { alugueisMenuItem, clientesMenuItem, ItensTemaMenuItem, temasMenuItem });
             cadastrosMenuItem.Name="cadastrosMenuItem";
             cadastrosMenuItem.Size=new Size(71, 20);
             cadastrosMenuItem.Text="Cadastros";
