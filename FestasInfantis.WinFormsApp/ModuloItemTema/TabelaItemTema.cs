@@ -24,6 +24,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
             grid.ConfigurarGridSomenteLeitura();
         }
 
+        // TODO a variavel de auxilio "Marcado" da EntidadeItemTema está aparecendo na apresentação dos itens pela tabela
         public void AtualizarRegistros(List<EntidadeItemTema> listaDeEntidades)
         {
             BindingList<EntidadeItemTema> bindingList = new BindingList<EntidadeItemTema>(listaDeEntidades);
