@@ -120,6 +120,10 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
             if (opcao == DialogResult.OK)
             {
+                /*Passar dos itens marcados no dialog para o Tema escolhido.
+                Clonado uma nova lista de itens para o Tema para que cada Tema tenha sua configuração específica
+                de itens selecionados*/
+
                 List<EntidadeItemTema> itensTema = tema.Itens;
 
                 List<EntidadeItemTema> itens = RepositorioItemTema.SelecionarTodos();
