@@ -32,5 +32,10 @@ namespace FestasInfantis.Dominio.ModuloItemTema
 
             return erros;
         }
+
+        public override string? ToString()
+        {
+            return Nome;
+        }
     }
 }

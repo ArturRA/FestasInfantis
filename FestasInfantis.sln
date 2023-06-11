@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestasInfantis.Dominio", "F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestasInfantis.Infra.Dados.Arquivo", "FestasInfantis.Infra.Dados.Arquivo\FestasInfantis.Infra.Dados.Arquivo.csproj", "{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "e-Agenda", "..\e-Agenda-master\e-Agenda-master\e-Agenda.csproj", "{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
