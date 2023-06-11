@@ -128,7 +128,8 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
                 List<EntidadeItemTema> itensMarcados = dialogAdicionar.ObterItensMarcados();
 
-                AtribuirItensMarcados(tema, itensMarcados);
+
+                MarcarItens(tema, itensMarcados);
 
                 List<EntidadeItemTema> itensDesmarcados = dialogAdicionar.ObterItensDesmarcados();
 
@@ -139,6 +140,7 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
         private void ClonarLista(List<EntidadeItemTema> itensTema, List<EntidadeItemTema> itens)
         {
+            itensTema.Clear();
             foreach (EntidadeItemTema i in itens)
             {
                 EntidadeItemTema item = new EntidadeItemTema(i.Nome, i.Valor);
@@ -147,7 +149,7 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             }
         }
 
-        private void AtribuirItensMarcados(EntidadeTema tema, List<EntidadeItemTema> itensMarcados)
+        private void MarcarItens(EntidadeTema tema, List<EntidadeItemTema> itensMarcados)
         {
             foreach (EntidadeItemTema i in itensMarcados)
             {
