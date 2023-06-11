@@ -11,6 +11,7 @@ namespace FestasInfantis.Dominio.ModuloItemTema
     {
         public string Nome { get; set; }
         public decimal Valor { get; set; }
+        public bool Selecionado { get; set; }
 
         public EntidadeItemTema()
         {

@@ -44,8 +44,26 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
         public void CarregarItens()
         {
             listItens.Items.AddRange(itens.ToArray());
+            if (tema.Itens.Count > 0)
+            {
+
+            }
         }
 
+        public List<EntidadeItemTema> ObterItensMarcados()
+        {
+            return listItens.CheckedItems.Cast<EntidadeItemTema>().ToList();
+        }
 
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            foreach (EntidadeItemTema i in listItens.CheckedItems.Cast<EntidadeItemTema>())
+            {
+
+                EntidadeItemTema item = new EntidadeItemTema(i.Nome, i.Valor);
+                item.Selecionado = true;
+                itens.Add(item);
+            }
+        }
     }
 }
