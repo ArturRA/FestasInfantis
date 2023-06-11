@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1=new MenuStrip();
-            cadastrosMenuItem=new ToolStripMenuItem();
-            alugueisMenuItem=new ToolStripMenuItem();
-            clientesMenuItem=new ToolStripMenuItem();
-            temasMenuItem=new ToolStripMenuItem();
-            ItensTemaMenuItem=new ToolStripMenuItem();
-            statusStrip1=new StatusStrip();
-            statusLabelTelaPrincipal=new ToolStripStatusLabel();
-            toolStrip1=new ToolStrip();
-            btnInserir=new ToolStripButton();
-            btnEditar=new ToolStripButton();
-            btnExcluir=new ToolStripButton();
-            toolStripSeparator2=new ToolStripSeparator();
-            btnAdicionarItens=new ToolStripButton();
-            toolStripSeparator3=new ToolStripSeparator();
-            labelTipoCadastro=new ToolStripLabel();
-            panelRegistros=new Panel();
+            menuStrip1 = new MenuStrip();
+            cadastrosMenuItem = new ToolStripMenuItem();
+            alugueisMenuItem = new ToolStripMenuItem();
+            clientesMenuItem = new ToolStripMenuItem();
+            ItensTemaMenuItem = new ToolStripMenuItem();
+            temasMenuItem = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
+            statusLabelTelaPrincipal = new ToolStripStatusLabel();
+            toolStrip1 = new ToolStrip();
+            btnInserir = new ToolStripButton();
+            btnEditar = new ToolStripButton();
+            btnExcluir = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            btnAdicionarItens = new ToolStripButton();
+            toolStripSeparator3 = new ToolStripSeparator();
+            labelTipoCadastro = new ToolStripLabel();
+            panelRegistros = new Panel();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -52,158 +52,166 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new Size(24, 24);
             menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosMenuItem });
-            menuStrip1.Location=new Point(0, 0);
-            menuStrip1.Name="menuStrip1";
-            menuStrip1.Size=new Size(1098, 24);
-            menuStrip1.TabIndex=0;
-            menuStrip1.Text="menuStrip1";
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(9, 3, 0, 3);
+            menuStrip1.Size = new Size(1569, 35);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // cadastrosMenuItem
             // 
             cadastrosMenuItem.DropDownItems.AddRange(new ToolStripItem[] { alugueisMenuItem, clientesMenuItem, ItensTemaMenuItem, temasMenuItem });
-            cadastrosMenuItem.Name="cadastrosMenuItem";
-            cadastrosMenuItem.Size=new Size(71, 20);
-            cadastrosMenuItem.Text="Cadastros";
+            cadastrosMenuItem.Name = "cadastrosMenuItem";
+            cadastrosMenuItem.Size = new Size(107, 29);
+            cadastrosMenuItem.Text = "Cadastros";
             // 
             // alugueisMenuItem
             // 
-            alugueisMenuItem.Name="alugueisMenuItem";
-            alugueisMenuItem.Size=new Size(180, 22);
-            alugueisMenuItem.Text="Alugueis";
-            alugueisMenuItem.Click+=alugueisMenuItem_Click;
+            alugueisMenuItem.Name = "alugueisMenuItem";
+            alugueisMenuItem.Size = new Size(270, 34);
+            alugueisMenuItem.Text = "Alugueis";
+            alugueisMenuItem.Click += alugueisMenuItem_Click;
             // 
             // clientesMenuItem
             // 
-            clientesMenuItem.Name="clientesMenuItem";
-            clientesMenuItem.Size=new Size(180, 22);
-            clientesMenuItem.Text="Clientes";
-            clientesMenuItem.Click+=clientesMenuItem_Click;
-            // 
-            // temasMenuItem
-            // 
-            temasMenuItem.Name="temasMenuItem";
-            temasMenuItem.Size=new Size(180, 22);
-            temasMenuItem.Text="Tema";
-            temasMenuItem.Click+=temasMenuItem_Click;
+            clientesMenuItem.Name = "clientesMenuItem";
+            clientesMenuItem.Size = new Size(270, 34);
+            clientesMenuItem.Text = "Clientes";
+            clientesMenuItem.Click += clientesMenuItem_Click;
             // 
             // ItensTemaMenuItem
             // 
-            ItensTemaMenuItem.Name="ItensTemaMenuItem";
-            ItensTemaMenuItem.Size=new Size(180, 22);
-            ItensTemaMenuItem.Text="Itens Tema";
-            ItensTemaMenuItem.Click+=itensTemaMenuItem_Click;
+            ItensTemaMenuItem.Name = "ItensTemaMenuItem";
+            ItensTemaMenuItem.Size = new Size(270, 34);
+            ItensTemaMenuItem.Text = "Itens Tema";
+            ItensTemaMenuItem.Click += itensTemaMenuItem_Click;
+            // 
+            // temasMenuItem
+            // 
+            temasMenuItem.Name = "temasMenuItem";
+            temasMenuItem.Size = new Size(270, 34);
+            temasMenuItem.Text = "Tema";
+            temasMenuItem.Click += temasMenuItem_Click;
             // 
             // statusStrip1
             // 
+            statusStrip1.ImageScalingSize = new Size(24, 24);
             statusStrip1.Items.AddRange(new ToolStripItem[] { statusLabelTelaPrincipal });
-            statusStrip1.Location=new Point(0, 539);
-            statusStrip1.Name="statusStrip1";
-            statusStrip1.Size=new Size(1098, 22);
-            statusStrip1.TabIndex=1;
-            statusStrip1.Text="statusStrip1";
+            statusStrip1.Location = new Point(0, 913);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Padding = new Padding(1, 0, 20, 0);
+            statusStrip1.Size = new Size(1569, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
             // 
             // statusLabelTelaPrincipal
             // 
-            statusLabelTelaPrincipal.Name="statusLabelTelaPrincipal";
-            statusLabelTelaPrincipal.Size=new Size(0, 17);
+            statusLabelTelaPrincipal.Name = "statusLabelTelaPrincipal";
+            statusLabelTelaPrincipal.Size = new Size(0, 15);
             // 
             // toolStrip1
             // 
+            toolStrip1.ImageScalingSize = new Size(24, 24);
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnAdicionarItens, toolStripSeparator3, labelTipoCadastro });
-            toolStrip1.Location=new Point(0, 24);
-            toolStrip1.Name="toolStrip1";
-            toolStrip1.Size=new Size(1098, 45);
-            toolStrip1.TabIndex=2;
-            toolStrip1.Text="toolStrip1";
+            toolStrip1.Location = new Point(0, 35);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Padding = new Padding(0, 0, 3, 0);
+            toolStrip1.Size = new Size(1569, 47);
+            toolStrip1.TabIndex = 2;
+            toolStrip1.Text = "toolStrip1";
             // 
             // btnInserir
             // 
-            btnInserir.DisplayStyle=ToolStripItemDisplayStyle.Image;
-            btnInserir.Enabled=false;
-            btnInserir.Image=Properties.Resources.add_circle_FILL0_wght400_GRAD0_opsz24;
-            btnInserir.ImageScaling=ToolStripItemImageScaling.None;
-            btnInserir.ImageTransparentColor=Color.Magenta;
-            btnInserir.Name="btnInserir";
-            btnInserir.Padding=new Padding(7);
-            btnInserir.Size=new Size(42, 42);
-            btnInserir.Click+=btnInserir_Click;
+            btnInserir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnInserir.Enabled = false;
+            btnInserir.Image = Properties.Resources.add_circle_FILL0_wght400_GRAD0_opsz24;
+            btnInserir.ImageScaling = ToolStripItemImageScaling.None;
+            btnInserir.ImageTransparentColor = Color.Magenta;
+            btnInserir.Name = "btnInserir";
+            btnInserir.Padding = new Padding(7);
+            btnInserir.Size = new Size(42, 42);
+            btnInserir.Click += btnInserir_Click;
             // 
             // btnEditar
             // 
-            btnEditar.DisplayStyle=ToolStripItemDisplayStyle.Image;
-            btnEditar.Enabled=false;
-            btnEditar.Image=Properties.Resources.edit_FILL0_wght400_GRAD0_opsz24;
-            btnEditar.ImageScaling=ToolStripItemImageScaling.None;
-            btnEditar.ImageTransparentColor=Color.Magenta;
-            btnEditar.Name="btnEditar";
-            btnEditar.Padding=new Padding(7);
-            btnEditar.Size=new Size(42, 42);
-            btnEditar.Click+=btnEditar_Click;
+            btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnEditar.Enabled = false;
+            btnEditar.Image = Properties.Resources.edit_FILL0_wght400_GRAD0_opsz24;
+            btnEditar.ImageScaling = ToolStripItemImageScaling.None;
+            btnEditar.ImageTransparentColor = Color.Magenta;
+            btnEditar.Name = "btnEditar";
+            btnEditar.Padding = new Padding(7);
+            btnEditar.Size = new Size(42, 42);
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
             // 
-            btnExcluir.DisplayStyle=ToolStripItemDisplayStyle.Image;
-            btnExcluir.Enabled=false;
-            btnExcluir.Image=Properties.Resources.delete_FILL0_wght400_GRAD0_opsz24;
-            btnExcluir.ImageScaling=ToolStripItemImageScaling.None;
-            btnExcluir.ImageTransparentColor=Color.Magenta;
-            btnExcluir.Name="btnExcluir";
-            btnExcluir.Padding=new Padding(7);
-            btnExcluir.Size=new Size(42, 42);
-            btnExcluir.Click+=btnExcluir_Click;
+            btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnExcluir.Enabled = false;
+            btnExcluir.Image = Properties.Resources.delete_FILL0_wght400_GRAD0_opsz24;
+            btnExcluir.ImageScaling = ToolStripItemImageScaling.None;
+            btnExcluir.ImageTransparentColor = Color.Magenta;
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Padding = new Padding(7);
+            btnExcluir.Size = new Size(42, 42);
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // toolStripSeparator2
             // 
-            toolStripSeparator2.Name="toolStripSeparator2";
-            toolStripSeparator2.Size=new Size(6, 45);
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 47);
             // 
             // btnAdicionarItens
             // 
-            btnAdicionarItens.DisplayStyle=ToolStripItemDisplayStyle.Image;
-            btnAdicionarItens.Enabled=false;
-            btnAdicionarItens.Image=Properties.Resources.library_add_FILL0_wght400_GRAD0_opsz24;
-            btnAdicionarItens.ImageScaling=ToolStripItemImageScaling.None;
-            btnAdicionarItens.ImageTransparentColor=Color.Magenta;
-            btnAdicionarItens.Name="btnAdicionarItens";
-            btnAdicionarItens.Padding=new Padding(7);
-            btnAdicionarItens.Size=new Size(42, 42);
-            btnAdicionarItens.Click+=btnAdicionarItens_Click;
+            btnAdicionarItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAdicionarItens.Enabled = false;
+            btnAdicionarItens.Image = Properties.Resources.library_add_FILL0_wght400_GRAD0_opsz24;
+            btnAdicionarItens.ImageScaling = ToolStripItemImageScaling.None;
+            btnAdicionarItens.ImageTransparentColor = Color.Magenta;
+            btnAdicionarItens.Name = "btnAdicionarItens";
+            btnAdicionarItens.Padding = new Padding(7);
+            btnAdicionarItens.Size = new Size(42, 42);
+            btnAdicionarItens.Click += btnAdicionarItens_Click;
             // 
             // toolStripSeparator3
             // 
-            toolStripSeparator3.Name="toolStripSeparator3";
-            toolStripSeparator3.Size=new Size(6, 45);
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 47);
             // 
             // labelTipoCadastro
             // 
-            labelTipoCadastro.Name="labelTipoCadastro";
-            labelTipoCadastro.Size=new Size(75, 42);
-            labelTipoCadastro.Text="tipoCadastro";
+            labelTipoCadastro.Name = "labelTipoCadastro";
+            labelTipoCadastro.Size = new Size(115, 42);
+            labelTipoCadastro.Text = "tipoCadastro";
             // 
             // panelRegistros
             // 
-            panelRegistros.BorderStyle=BorderStyle.FixedSingle;
-            panelRegistros.Dock=DockStyle.Fill;
-            panelRegistros.Location=new Point(0, 69);
-            panelRegistros.Name="panelRegistros";
-            panelRegistros.Size=new Size(1098, 470);
-            panelRegistros.TabIndex=3;
+            panelRegistros.BorderStyle = BorderStyle.FixedSingle;
+            panelRegistros.Dock = DockStyle.Fill;
+            panelRegistros.Location = new Point(0, 82);
+            panelRegistros.Margin = new Padding(4, 5, 4, 5);
+            panelRegistros.Name = "panelRegistros";
+            panelRegistros.Size = new Size(1569, 831);
+            panelRegistros.TabIndex = 3;
             // 
             // TelaPrincipalForm
             // 
-            AutoScaleDimensions=new SizeF(7F, 15F);
-            AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(1098, 561);
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1569, 935);
             Controls.Add(panelRegistros);
             Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
-            MainMenuStrip=menuStrip1;
-            Name="TelaPrincipalForm";
-            ShowIcon=false;
-            StartPosition=FormStartPosition.CenterScreen;
-            Text="e-Agenda 1.0";
+            MainMenuStrip = menuStrip1;
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "TelaPrincipalForm";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "e-Agenda 1.0";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);

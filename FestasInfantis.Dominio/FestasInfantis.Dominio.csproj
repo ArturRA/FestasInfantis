@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloAluguel\" />
-    <Folder Include="ModuloCliente\" />
-    <Folder Include="ModuloTema\" />
+    <Compile Remove="ModuloAluguel\**" />
+    <Compile Remove="ModuloCliente\**" />
+    <EmbeddedResource Remove="ModuloAluguel\**" />
+    <EmbeddedResource Remove="ModuloCliente\**" />
+    <None Remove="ModuloAluguel\**" />
+    <None Remove="ModuloCliente\**" />
   </ItemGroup>
 
 </Project>

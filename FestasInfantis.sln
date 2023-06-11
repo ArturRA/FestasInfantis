@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestasInfantis.WinFormsApp", "FestasInfantis.WinFormsApp\FestasInfantis.WinFormsApp.csproj", "{E2A0F8C1-883F-4D82-8652-A2F08126BC5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestasInfantis.WinFormsApp", "FestasInfantis.WinFormsApp\FestasInfantis.WinFormsApp.csproj", "{E2A0F8C1-883F-4D82-8652-A2F08126BC5C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Apresentacao", "1-Apresentacao", "{3F3D22D1-B418-4AB7-B2FD-79E02A36FE62}"
 EndProject
@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Dominio", "2-Dominio", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infra", "3-Infra", "{F3224452-F4C4-4293-8ABE-E6D6CF9D50FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestasInfantis.Dominio", "FestasInfantis.Dominio\FestasInfantis.Dominio.csproj", "{0BF3979B-3969-4061-9283-CBF6A299B549}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestasInfantis.Dominio", "FestasInfantis.Dominio\FestasInfantis.Dominio.csproj", "{0BF3979B-3969-4061-9283-CBF6A299B549}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestasInfantis.Infra.Dados.Arquivo", "FestasInfantis.Infra.Dados.Arquivo\FestasInfantis.Infra.Dados.Arquivo.csproj", "{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestasInfantis.Infra.Dados.Arquivo", "FestasInfantis.Infra.Dados.Arquivo\FestasInfantis.Infra.Dados.Arquivo.csproj", "{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "e-Agenda", "..\e-Agenda-master\e-Agenda-master\e-Agenda.csproj", "{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2A00ABD-6DCE-4660-B450-1E7A3D857A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B3CAD6C-1841-4689-BFF9-3AC7794BE816}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
 using FestasInfantis.Dominio.ModuloItemTema;
+using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
 {
@@ -11,14 +12,14 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
         //public List<EntidadeAluguel> Categorias { get; set; }   Aluguel
         //public List<EntidadeCliente> Compromissos { get; set; }   Cliente
         public List<EntidadeItemTema> ItensTemas { get; set; }
-        //public List<EntidadeTema> Contatos { get; set; }     Tema
+        public List<EntidadeTema> Temas { get; set; }
 
         public ContextoDados()
         {
             //Categorias = new List<EntidadeAluguel>();    Aluguel
             //Compromissos = new List<EntidadeCliente>();    Cliente
             ItensTemas = new List<EntidadeItemTema>();
-            //Contatos = new List<EntidadeTema>();    Tema
+            Temas = new List<EntidadeTema>();
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -51,7 +52,7 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
                     //this.Categorias = ctx.Categorias;    Aluguel
                     //this.Compromissos = ctx.Compromissos;    Cliente
                     this.ItensTemas = ctx.ItensTemas;
-                    //this.Contatos = ctx.Contatos;        Tema
+                    this.Temas = ctx.Temas;
                 }
             }
         }

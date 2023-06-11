@@ -2,6 +2,9 @@ using FestasInfantis.Dominio.ModuloItemTema;
 using FestasInfantis.Infra.Dados.Arquivo.Compartilhado;
 using FestasInfantis.Infra.Dados.Arquivo.ModuloItemTema;
 using FestasInfantis.WinFormsApp.ModuloItemTema;
+using FestasInfantis.Dominio.ModuloTema;
+using FestasInfantis.Infra.Dados.Arquivo.ModuloTema;
+using FestasInfantis.WinFormsApp.ModuloTema;
 
 namespace FestasInfantis.WinFormsApp
 {
@@ -15,7 +18,7 @@ namespace FestasInfantis.WinFormsApp
         //private IRepositorioCategoria RepositorioCategoria { get; set; }   Aluguel
         //private IRepositorioCompromisso RepositorioCompromisso { get; set; }     Cliente
         private IRepositorioItemTema RepositorioItemTema { get; set; }
-        //private IRepositorioContato RepositorioContato { get; set; }    Tema
+        private IRepositorioTema RepositorioTema { get; set; }
 
 
 
@@ -23,15 +26,15 @@ namespace FestasInfantis.WinFormsApp
         {
             InitializeComponent();
             ConfigurarRepositorios();
-            Instancia=this;
+            Instancia = this;
         }
 
         private void ConfigurarRepositorios()
         {
             //RepositorioCategoria = new RepositorioCategoriaEmArquivo(ContextoDados);      Aluguel
             //RepositorioCompromisso = new RepositorioCompromissoEmArquivo(ContextoDados);    Cliente
-            RepositorioItemTema= new RepositorioItemTemaEmArquivo(ContextoDados);
-            //RepositorioContato = new RepositorioContatoEmArquivo(ContextoDados);     Tema
+            RepositorioItemTema = new RepositorioItemTemaEmArquivo(ContextoDados);
+            RepositorioTema = new RepositorioTemaEmArquivo(ContextoDados);
         }
 
         public void AtualizarToolStrip(string text)
@@ -55,7 +58,7 @@ namespace FestasInfantis.WinFormsApp
 
         private void temasMenuItem_Click(object sender, EventArgs e)
         {
-            //Controlador = new ControladorTarefa(RepositorioTarefa);
+            Controlador = new ControladorTema(RepositorioTema, RepositorioItemTema);
 
             ConfigurarTelaPrincipal(Controlador);
         }
