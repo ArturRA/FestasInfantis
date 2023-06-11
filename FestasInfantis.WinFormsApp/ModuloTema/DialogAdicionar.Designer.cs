@@ -31,6 +31,8 @@
             label1 = new Label();
             lblTema = new Label();
             listItens = new CheckedListBox();
+            btnCancelar = new Button();
+            btnGravar = new Button();
             SuspendLayout();
             // 
             // label1
@@ -58,14 +60,38 @@
             listItens.FormattingEnabled = true;
             listItens.Location = new Point(12, 68);
             listItens.Name = "listItens";
-            listItens.Size = new Size(252, 184);
+            listItens.Size = new Size(252, 220);
             listItens.TabIndex = 2;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Location = new Point(189, 311);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 41);
+            btnCancelar.TabIndex = 10;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnGravar
+            // 
+            btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Location = new Point(108, 311);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(75, 41);
+            btnGravar.TabIndex = 9;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = true;
             // 
             // DialogAdicionar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(276, 294);
+            ClientSize = new Size(276, 364);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
             Controls.Add(listItens);
             Controls.Add(lblTema);
             Controls.Add(label1);
@@ -80,5 +106,7 @@
         private Label label1;
         private Label lblTema;
         private CheckedListBox listItens;
+        private Button btnCancelar;
+        private Button btnGravar;
     }
 }

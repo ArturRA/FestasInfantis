@@ -29,9 +29,9 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             }
         }
 
-        public List<EntidadeItemTema> Itens 
+        public List<EntidadeItemTema> Itens
         {
-            get 
+            get
             {
                 return itens;
             }
