@@ -11,7 +11,7 @@ namespace FestasInfantis.Dominio.ModuloItemTema
     {
         public string Nome { get; set; }
         public decimal Valor { get; set; }
-        public bool Selecionado { get; set; }
+        public bool Marcado { get; set; }
 
         public EntidadeItemTema()
         {
@@ -37,6 +37,23 @@ namespace FestasInfantis.Dominio.ModuloItemTema
         public override string? ToString()
         {
             return Nome;
+        }
+
+        public void Selecionar()
+        {
+            Marcado = true;
+        }
+
+        public void Deselecionar()
+        {
+            Marcado = false;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is EntidadeItemTema item &&
+                   Nome == item.Nome &&
+                   Valor == item.Valor;
         }
     }
 }

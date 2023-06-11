@@ -120,7 +120,46 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
             if (opcao == DialogResult.OK)
             {
+                List<EntidadeItemTema> itensTema = tema.Itens;
 
+                List<EntidadeItemTema> itens = RepositorioItemTema.SelecionarTodos();
+
+                ClonarLista(itensTema, itens);
+
+                List<EntidadeItemTema> itensMarcados = dialogAdicionar.ObterItensMarcados();
+
+                AtribuirItensMarcados(tema, itensMarcados);
+
+                List<EntidadeItemTema> itensDesmarcados = dialogAdicionar.ObterItensDesmarcados();
+
+                DesmarcarItens(tema, itensDesmarcados);
+
+            }
+        }
+
+        private void ClonarLista(List<EntidadeItemTema> itensTema, List<EntidadeItemTema> itens)
+        {
+            foreach (EntidadeItemTema i in itens)
+            {
+                EntidadeItemTema item = new EntidadeItemTema(i.Nome, i.Valor);
+
+                itensTema.Add(item);
+            }
+        }
+
+        private void AtribuirItensMarcados(EntidadeTema tema, List<EntidadeItemTema> itensMarcados)
+        {
+            foreach (EntidadeItemTema i in itensMarcados)
+            {
+                tema.EncontrarESelecionar(i);
+            }
+        }
+
+        private void DesmarcarItens(EntidadeTema tema, List<EntidadeItemTema> itensDesmarcados)
+        {
+            foreach (EntidadeItemTema i in itensDesmarcados)
+            {
+                tema.EncontrarEDeselecionar(i);
             }
         }
 
