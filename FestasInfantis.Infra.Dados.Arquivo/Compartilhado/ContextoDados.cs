@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
 using FestasInfantis.Dominio.ModuloItemTema;
+using FestasInfantis.Dominio.ModuloCliente;
 
 namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
 {
@@ -9,14 +10,14 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
         private const string PATH_NOME_ARQUIVO = "Compartilhado\\e-AgendaDados.json";
         private FileInfo fileInfo = new FileInfo(PATH_NOME_ARQUIVO);
         //public List<EntidadeAluguel> Categorias { get; set; }   Aluguel
-        //public List<EntidadeCliente> Compromissos { get; set; }   Cliente
+        public List<EntidadeCliente> Clientes { get; set; }
         public List<EntidadeItemTema> ItensTemas { get; set; }
         //public List<EntidadeTema> Contatos { get; set; }     Tema
 
         public ContextoDados()
         {
             //Categorias = new List<EntidadeAluguel>();    Aluguel
-            //Compromissos = new List<EntidadeCliente>();    Cliente
+            Clientes = new List<EntidadeCliente>();
             ItensTemas = new List<EntidadeItemTema>();
             //Contatos = new List<EntidadeTema>();    Tema
         }
