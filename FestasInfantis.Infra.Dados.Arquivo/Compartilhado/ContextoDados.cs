@@ -50,7 +50,7 @@ namespace FestasInfantis.Infra.Dados.Arquivo.Compartilhado
                     ContextoDados ctx = JsonSerializer.Deserialize<ContextoDados>(registrosJson, config);
 
                     //this.Categorias = ctx.Categorias;    Aluguel
-                    //this.Compromissos = ctx.Compromissos;    Cliente
+                    this.Clientes = ctx.Clientes;
                     this.ItensTemas = ctx.ItensTemas;
                     //this.Contatos = ctx.Contatos;        Tema
                 }

@@ -19,6 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ModuloCliente\DialogItemCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModuloCliente\TabelaItemCliente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -1,6 +1,9 @@
+using FestasInfantis.Dominio.ModuloCliente;
 using FestasInfantis.Dominio.ModuloItemTema;
 using FestasInfantis.Infra.Dados.Arquivo.Compartilhado;
+using FestasInfantis.Infra.Dados.Arquivo.ModuloCliente;
 using FestasInfantis.Infra.Dados.Arquivo.ModuloItemTema;
+using FestasInfantis.WinFormsApp.ModuloCliente;
 using FestasInfantis.WinFormsApp.ModuloItemTema;
 
 namespace FestasInfantis.WinFormsApp
@@ -13,7 +16,7 @@ namespace FestasInfantis.WinFormsApp
 
         private ContextoDados ContextoDados { get; set; } = new ContextoDados(carregarDados: true);
         //private IRepositorioCategoria RepositorioCategoria { get; set; }   Aluguel
-        //private IRepositorioCompromisso RepositorioCompromisso { get; set; }     Cliente
+        private IRepositorioCliente repositorioCliente { get; set; }
         private IRepositorioItemTema RepositorioItemTema { get; set; }
         //private IRepositorioContato RepositorioContato { get; set; }    Tema
 
@@ -29,8 +32,8 @@ namespace FestasInfantis.WinFormsApp
         private void ConfigurarRepositorios()
         {
             //RepositorioCategoria = new RepositorioCategoriaEmArquivo(ContextoDados);      Aluguel
-            //RepositorioCompromisso = new RepositorioCompromissoEmArquivo(ContextoDados);    Cliente
-            RepositorioItemTema= new RepositorioItemTemaEmArquivo(ContextoDados);
+            repositorioCliente = new RepositorioClienteEmArquivo(ContextoDados);
+            RepositorioItemTema = new RepositorioItemTemaEmArquivo(ContextoDados);
             //RepositorioContato = new RepositorioContatoEmArquivo(ContextoDados);     Tema
         }
 
@@ -48,7 +51,7 @@ namespace FestasInfantis.WinFormsApp
 
         private void clientesMenuItem_Click(object sender, EventArgs e)
         {
-            //Controlador = new ControladorContato(RepositorioContato);
+            Controlador = new ControladorCliente(repositorioCliente);
 
             ConfigurarTelaPrincipal(Controlador);
         }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace FestasInfantis.Infra.Dados.Arquivo.ModuloCliente
 {
-    public class RepositorioCliente : RepositorioEmArquivo<EntidadeCliente>, IRepositorioCliente
+    public class RepositorioClienteEmArquivo : RepositorioEmArquivo<EntidadeCliente>, IRepositorioCliente
     {
-        public RepositorioCliente(ContextoDados contexto) : base(contexto)
+        public RepositorioClienteEmArquivo(ContextoDados contexto) : base(contexto)
         {
 
         }
