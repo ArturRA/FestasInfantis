@@ -60,29 +60,19 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
                     if (tema.Itens.Contains(e))
                     {
-                        EntidadeItemTema item = Tema.Itens.FirstOrDefault(x => x.Equals(e));
-                        marcado = item.Marcado;
+                        EntidadeItemTema item = Tema.Itens.FirstOrDefault(x => x == e);
                     }
 
-                    listItens.SetItemChecked(i, marcado);
+                    listItens.SetItemChecked(i, true);
 
                     i++;
                 }
             }
         }
 
-        public List<EntidadeItemTema> ObterItens()
-        {
-            return listItens.Items.Cast<EntidadeItemTema>().ToList();
-        }
         public List<EntidadeItemTema> ObterItensMarcados()
         {
             return listItens.CheckedItems.Cast<EntidadeItemTema>().ToList();
-        }
-
-        public List<EntidadeItemTema> ObterItensDesmarcados()
-        {
-            return listItens.CheckedItems.Cast<EntidadeItemTema>().Except(ObterItensMarcados()).ToList();
         }
     }
 }

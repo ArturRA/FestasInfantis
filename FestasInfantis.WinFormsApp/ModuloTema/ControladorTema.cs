@@ -120,25 +120,9 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
             if (opcao == DialogResult.OK)
             {
-                /*Passar dos itens marcados no dialog para o Tema escolhido.
-                Clonado uma nova lista de itens para o Tema para que cada Tema tenha sua configuração específica
-                de itens selecionados*/
+                tema.Itens = dialogAdicionar.ObterItensMarcados();
 
-                List<EntidadeItemTema> itensTema = tema.Itens;
-
-                List<EntidadeItemTema> itens = RepositorioItemTema.SelecionarTodos();
-
-                ClonarLista(itensTema, itens);
-
-                List<EntidadeItemTema> itensMarcados = dialogAdicionar.ObterItensMarcados();
-
-                MarcarItens(tema, itensMarcados);
-
-                List<EntidadeItemTema> itensDesmarcados = dialogAdicionar.ObterItensDesmarcados();
-
-                DesmarcarItens(tema, itensDesmarcados);
-
-                AtualizarValorTotalDosItens(tema);
+                //AtualizarValorTotalDosItens(tema);
 
                 CarregarEntidades();
             }
@@ -149,35 +133,8 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             tema.ValorItens = 0;
             foreach (EntidadeItemTema i in tema.Itens)
             {
-                if(i.Marcado)
+                //if(i.Marcado)
                 tema.ValorItens += i.Valor;
-            }
-        }
-
-        private void ClonarLista(List<EntidadeItemTema> itensTema, List<EntidadeItemTema> itens)
-        {
-            itensTema.Clear();
-            foreach (EntidadeItemTema i in itens)
-            {
-                EntidadeItemTema item = new EntidadeItemTema(i.Nome, i.Valor);
-
-                itensTema.Add(item);
-            }
-        }
-
-        private void MarcarItens(EntidadeTema tema, List<EntidadeItemTema> itensMarcados)
-        {
-            foreach (EntidadeItemTema i in itensMarcados)
-            {
-                tema.EncontrarESelecionar(i);
-            }
-        }
-
-        private void DesmarcarItens(EntidadeTema tema, List<EntidadeItemTema> itensDesmarcados)
-        {
-            foreach (EntidadeItemTema i in itensDesmarcados)
-            {
-                tema.EncontrarEDeselecionar(i);
             }
         }
 

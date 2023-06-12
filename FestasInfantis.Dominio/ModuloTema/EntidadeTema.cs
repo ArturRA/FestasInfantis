@@ -33,25 +33,5 @@ namespace FestasInfantis.Dominio.ModuloTema
 
             return erros;
         }
-
-        public void EncontrarESelecionar(EntidadeItemTema item)
-        {
-            if (this.Itens.Contains(item))
-            {
-                EntidadeItemTema itemEncontrado = this.Itens.FirstOrDefault(x => x.Equals(item));
-
-                itemEncontrado.Selecionar();
-            }
-        }
-
-        public void EncontrarEDeselecionar(EntidadeItemTema item)
-        {
-            if (this.Itens.Contains(item))
-            {
-                EntidadeItemTema itemEncontrado = this.Itens.FirstOrDefault(x => x.Equals(item));
-
-                itemEncontrado.Deselecionar();
-            }
-        }
     }
 }
