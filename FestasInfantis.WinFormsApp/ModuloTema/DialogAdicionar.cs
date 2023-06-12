@@ -60,10 +60,10 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
                     if (tema.Itens.Contains(e))
                     {
-                        EntidadeItemTema item = Tema.Itens.FirstOrDefault(x => x == e);
+                        listItens.SetItemChecked(i, true);
                     }
 
-                    listItens.SetItemChecked(i, true);
+                    
 
                     i++;
                 }
