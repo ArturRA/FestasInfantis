@@ -56,6 +56,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                dialog.ItemTema.Temas = entidade.Temas;
 
                 RepositorioItemTema.Editar(dialog.ItemTema);
 

@@ -44,9 +44,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
             decimal valor = Convert.ToDecimal(txtValor.Text);
 
-            List<EntidadeTema> temas = entidadeItemTema.Temas;
-
-            entidadeItemTema = new EntidadeItemTema(nome, valor, temas);
+            entidadeItemTema = new EntidadeItemTema(nome, valor);
 
             List<string> resultado = entidadeItemTema.Validar();
             if (resultado.Count > 0)
