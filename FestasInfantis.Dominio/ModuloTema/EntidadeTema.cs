@@ -33,5 +33,11 @@ namespace FestasInfantis.Dominio.ModuloTema
 
             return erros;
         }
+
+        public void RemoverItem(EntidadeItemTema entidade)
+        {
+            if (Itens.Any(e => e.Id == entidade.Id))
+                Itens.Remove(Itens.Single(e => e.Id == entidade.Id));
+        }
     }
 }

@@ -82,6 +82,8 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                entidade.Temas.ForEach(t => t.RemoverItem(entidade));
+
                 RepositorioItemTema.Excluir(entidade);
 
                 CarregarEntidades();
