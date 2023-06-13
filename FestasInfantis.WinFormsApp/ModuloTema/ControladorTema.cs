@@ -144,15 +144,6 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             
         }
 
-        private void AtualizarValorTotalDosItens(EntidadeTema tema)
-        {
-            tema.ValorItens = 0;
-            foreach (EntidadeItemTema i in tema.Itens)
-            {
-                tema.ValorItens += i.Valor;
-            }
-        }
-
         public override UserControl ObterListagem()
         {
             TabelaTema ??= new TabelaTema(RepositorioTema.SelecionarTodos());
@@ -160,6 +151,15 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             CarregarEntidades();
 
             return TabelaTema;
+        }
+
+        private void AtualizarValorTotalDosItens(EntidadeTema tema)
+        {
+            tema.ValorItens = 0;
+            foreach (EntidadeItemTema i in tema.Itens)
+            {
+                tema.ValorItens += i.Valor;
+            }
         }
 
         private void CarregarEntidades()
