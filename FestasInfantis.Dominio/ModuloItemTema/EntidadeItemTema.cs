@@ -1,4 +1,5 @@
-﻿using FestasInfantis.Dominio.ModuloTema;
+﻿using FestasInfantis.Dominio.Compartilhado;
+using FestasInfantis.Dominio.ModuloTema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +50,8 @@ namespace FestasInfantis.Dominio.ModuloItemTema
 
         public void RemoverTema(EntidadeTema tema)
         {
-            Temas.Remove(tema);
+            if (Temas.Any(e => e.Id == tema.Id))
+                Temas.Remove(Temas.Single(e => e.Id == tema.Id));
         }
     }
 }
