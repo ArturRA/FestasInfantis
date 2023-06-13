@@ -1,4 +1,5 @@
 ﻿using FestasInfantis.Dominio.ModuloItemTema;
+using FestasInfantis.Dominio.ModuloTema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,15 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+
                 RepositorioItemTema.Editar(dialog.ItemTema);
+
+                EntidadeItemTema entidadeEditada = RepositorioItemTema.SelecionarPeloId(entidade.Id);
+
+                foreach (EntidadeTema t in entidadeEditada.Temas)
+                {
+                    AtualizarValorTotalDosItens(t);
+                }
 
                 CarregarEntidades();
             }
@@ -84,7 +93,16 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
             {
                 entidade.Temas.ForEach(t => t.RemoverItem(entidade));
 
+                foreach (EntidadeTema t in entidade.Temas)
+                {
+                    t.RemoverItem(entidade);
+
+                    AtualizarValorTotalDosItens(t);
+                }
+
                 RepositorioItemTema.Excluir(entidade);
+
+                
 
                 CarregarEntidades();
             }
@@ -105,6 +123,15 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
             CarregarEntidades();
 
             return TabelaItemTema;
+        }
+
+        private void AtualizarValorTotalDosItens(EntidadeTema tema)
+        {
+            tema.ValorItens = 0;
+            foreach (EntidadeItemTema i in tema.Itens)
+            {
+                tema.IncrementarValorItens(i.Valor);
+            }
         }
     }
 }

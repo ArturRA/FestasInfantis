@@ -27,6 +27,13 @@ namespace FestasInfantis.Dominio.ModuloItemTema
             Temas = new List<EntidadeTema>();
         }
 
+        public EntidadeItemTema(string nome, decimal valor, List<EntidadeTema> temas)
+        {
+            Nome = nome;
+            Valor = valor;
+            Temas = temas;
+        }
+
         public override List<string> Validar()
         {
             List<string> erros = new List<string>();

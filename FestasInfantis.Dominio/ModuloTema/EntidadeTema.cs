@@ -39,5 +39,10 @@ namespace FestasInfantis.Dominio.ModuloTema
             if (Itens.Any(e => e.Id == entidade.Id))
                 Itens.Remove(Itens.Single(e => e.Id == entidade.Id));
         }
+
+        public void IncrementarValorItens(decimal valor)
+        {
+            ValorItens += valor;
+        }
     }
 }

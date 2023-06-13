@@ -138,6 +138,8 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
                         i.RemoverTema(tema);
                 }
 
+                AtualizarValorTotalDosItens(tema);
+
                 CarregarEntidades();
             }
 
@@ -158,7 +160,7 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             tema.ValorItens = 0;
             foreach (EntidadeItemTema i in tema.Itens)
             {
-                tema.ValorItens += i.Valor;
+                tema.IncrementarValorItens(i.Valor);
             }
         }
 
@@ -167,9 +169,6 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             List<EntidadeTema> temas = RepositorioTema.SelecionarTodos();
 
             TabelaTema.AtualizarRegistros(temas);
-
-            foreach (EntidadeTema tema in temas)
-            AtualizarValorTotalDosItens(tema);
         }
 
     }
