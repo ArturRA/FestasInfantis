@@ -122,6 +122,20 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             {
                 tema.Itens = dialogAdicionar.ObterItensMarcados();
 
+                foreach(EntidadeItemTema i in tema.Itens)
+                {
+                    if (i.Temas.Contains(tema) == false)
+                    i.AdicionarTema(tema);
+                }
+
+                List<EntidadeItemTema> itensDesmarcados = dialogAdicionar.ObterItensDesmarcados();
+
+                foreach (EntidadeItemTema i in itensDesmarcados)
+                {
+                    if (i.Temas.Contains(tema) == true)
+                        i.RemoverTema(tema);
+                }
+
                 //AtualizarValorTotalDosItens(tema);
 
                 CarregarEntidades();

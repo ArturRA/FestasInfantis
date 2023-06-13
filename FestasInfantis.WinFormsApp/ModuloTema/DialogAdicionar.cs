@@ -74,5 +74,10 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
         {
             return listItens.CheckedItems.Cast<EntidadeItemTema>().ToList();
         }
+
+        public List<EntidadeItemTema> ObterItensDesmarcados()
+        {
+            return listItens.Items.Cast<EntidadeItemTema>().Except(ObterItensMarcados()).ToList();
+        }
     }
 }

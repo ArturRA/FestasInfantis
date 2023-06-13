@@ -23,6 +23,7 @@ namespace FestasInfantis.Dominio.ModuloItemTema
         {
             Nome=nome;
             Valor=valor;
+            Temas = new List<EntidadeTema>();
         }
 
         public override List<string> Validar()
@@ -39,6 +40,16 @@ namespace FestasInfantis.Dominio.ModuloItemTema
         public override string? ToString()
         {
             return Nome;
+        }
+
+        public void AdicionarTema(EntidadeTema tema)
+        {
+            Temas.Add(tema);
+        }
+
+        public void RemoverTema(EntidadeTema tema)
+        {
+            Temas.Remove(tema);
         }
     }
 }
