@@ -5,16 +5,19 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 {
     public partial class DialogAdicionar : Form
     {
-        public DialogAdicionar()
+        private EntidadeTema tema;
+
+        private List<EntidadeItemTema> itens;
+
+        public DialogAdicionar(List<EntidadeItemTema> entidadeItemTemas)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
+
+            itens= entidadeItemTemas;
         }
 
-        private EntidadeTema tema;
-
-        private List<EntidadeItemTema> itens;
 
         public EntidadeTema Tema
         {
@@ -26,24 +29,13 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             {
                 tema = value;
                 lblTema.Text = tema.Nome;
+                CarregarItens(itens);
             }
         }
 
-        public List<EntidadeItemTema> Itens
+        public void CarregarItens(List<EntidadeItemTema> entidades)
         {
-            get
-            {
-                return itens;
-            }
-            set
-            {
-                itens = value;
-            }
-        }
-
-        public void CarregarItens()
-        {
-            listItens.Items.AddRange(itens.ToArray());
+            listItens.Items.AddRange(entidades.ToArray());
 
             MarcarItensDaListBox();
         }
@@ -62,8 +54,6 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
                     {
                         listItens.SetItemChecked(i, true);
                     }
-
-                    
 
                     i++;
                 }

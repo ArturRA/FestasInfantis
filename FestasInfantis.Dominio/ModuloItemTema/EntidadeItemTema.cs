@@ -45,7 +45,8 @@ namespace FestasInfantis.Dominio.ModuloItemTema
 
         public void AdicionarTema(EntidadeTema tema)
         {
-            Temas.Add(tema);
+            if (!Temas.Any(e => e.Id == tema.Id))
+                Temas.Add(tema);
         }
 
         public void RemoverTema(EntidadeTema tema)

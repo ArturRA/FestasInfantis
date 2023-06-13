@@ -34,15 +34,22 @@ namespace FestasInfantis.Dominio.ModuloTema
             return erros;
         }
 
-        public void RemoverItem(EntidadeItemTema entidade)
+        public void AdicionarItemTema(EntidadeItemTema entidade)
+        {
+            if (!Itens.Any(e => e.Id == entidade.Id))
+                Itens.Add(entidade);
+        }
+
+        public void RemoverItemTema(EntidadeItemTema entidade)
         {
             if (Itens.Any(e => e.Id == entidade.Id))
                 Itens.Remove(Itens.Single(e => e.Id == entidade.Id));
         }
 
-        public void IncrementarValorItens(decimal valor)
+        public void AtualziarValorItens()
         {
-            ValorItens += valor;
+            ValorItens = 0;
+            ValorItens = Itens.Sum(itemTema => itemTema.Valor);
         }
     }
 }

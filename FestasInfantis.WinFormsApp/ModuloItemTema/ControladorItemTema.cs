@@ -1,10 +1,4 @@
 ﻿using FestasInfantis.Dominio.ModuloItemTema;
-using FestasInfantis.Dominio.ModuloTema;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FestasInfantis.WinFormsApp.ModuloItemTema
 {
@@ -56,16 +50,11 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                dialog.ItemTema.Temas = entidade.Temas;
+                entidade = dialog.ItemTema;
 
-                RepositorioItemTema.Editar(dialog.ItemTema);
+                entidade.Temas.ForEach(tema => tema.AtualziarValorItens());
 
-                EntidadeItemTema entidadeEditada = RepositorioItemTema.SelecionarPeloId(entidade.Id);
-
-                foreach (EntidadeTema t in entidadeEditada.Temas)
-                {
-                    AtualizarValorTotalDosItens(t);
-                }
+                RepositorioItemTema.Editar(entidade);
 
                 CarregarEntidades();
             }
@@ -73,7 +62,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
         public override void Excluir()
         {
-            EntidadeItemTema entidade = TabelaItemTema.ObterEntidadeSelecionada();
+            EntidadeItemTema? entidade = TabelaItemTema.ObterEntidadeSelecionada();
 
             if (entidade == null)
             {
@@ -92,18 +81,14 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                entidade.Temas.ForEach(t => t.RemoverItem(entidade));
-
-                foreach (EntidadeTema t in entidade.Temas)
+                entidade.Temas.ForEach(t =>
                 {
-                    t.RemoverItem(entidade);
+                    t.RemoverItemTema(entidade);
 
-                    AtualizarValorTotalDosItens(t);
-                }
+                    t.AtualziarValorItens();
+                });
 
                 RepositorioItemTema.Excluir(entidade);
-
-                
 
                 CarregarEntidades();
             }
@@ -124,15 +109,6 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
             CarregarEntidades();
 
             return TabelaItemTema;
-        }
-
-        private void AtualizarValorTotalDosItens(EntidadeTema tema)
-        {
-            tema.ValorItens = 0;
-            foreach (EntidadeItemTema i in tema.Itens)
-            {
-                tema.IncrementarValorItens(i.Valor);
-            }
         }
     }
 }

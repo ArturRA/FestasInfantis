@@ -15,6 +15,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
     public partial class DialogItemTema : Form
     {
         private EntidadeItemTema entidadeItemTema;
+        private List<EntidadeTema> temas;
 
         public DialogItemTema()
         {
@@ -31,6 +32,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
                 labelId.Text = entidadeItemTema.Id.ToString();
                 txtNome.Text = entidadeItemTema.Nome;
                 txtValor.Text = entidadeItemTema.Valor.ToString();
+                temas = entidadeItemTema.Temas;
             }
             get
             {
@@ -54,8 +56,13 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
             }
             else
             {
+                // Editando a entidade
                 if (labelId.Text != "0")
+                {
                     entidadeItemTema.Id = Convert.ToInt32(labelId.Text);
+                    entidadeItemTema.Temas = temas;
+                }
+                
                 TelaPrincipalForm.Instancia.AtualizarToolStrip("");
             }
         }

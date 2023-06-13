@@ -31,9 +31,9 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
             if (opcao == DialogResult.OK)
             {
-                EntidadeTema tema = dialogTema.Tema;
+                EntidadeTema entidade = dialogTema.Tema;
 
-                RepositorioTema.Inserir(tema);
+                RepositorioTema.Inserir(entidade);
 
                 CarregarEntidades();
             }
@@ -42,9 +42,9 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
         public override void Editar()
         {
-            EntidadeTema tema = TabelaTema.ObterEntidadeSelecionada();
+            EntidadeTema? entidade = TabelaTema.ObterEntidadeSelecionada();
 
-            if (tema == null)
+            if (entidade == null)
             {
                 MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
                                 $"Edição de {TipoDoCadastro}s",
@@ -54,25 +54,25 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
                 return;
             }
 
-            DialogTema dialogTema = new DialogTema();
-            dialogTema.Tema = tema;
+            DialogTema dialog = new DialogTema();
+            dialog.Tema = entidade;
 
-            DialogResult opcao = dialogTema.ShowDialog();
+            DialogResult opcao = dialog.ShowDialog();
 
             if (opcao == DialogResult.OK)
             {
-                RepositorioTema.Editar(dialogTema.Tema);
+                entidade = dialog.Tema;
+                RepositorioTema.Editar(entidade);
 
                 CarregarEntidades();
             }
-
         }
 
         public override void Excluir()
         {
-            EntidadeTema tema = TabelaTema.ObterEntidadeSelecionada();
+            EntidadeTema? entidade = TabelaTema.ObterEntidadeSelecionada();
 
-            if (tema == null)
+            if (entidade == null)
             {
                 MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
                                 $"Exclusão de {TipoDoCadastro}s",
@@ -82,17 +82,16 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
                 return;
             }
 
-
-            DialogResult opcao = MessageBox.Show($"Deseja excluir o {TipoDoCadastro} {tema.Nome}?",
+            DialogResult opcao = MessageBox.Show($"Deseja excluir o {TipoDoCadastro} {entidade.Nome}?",
                                                           $"Exclusão de {TipoDoCadastro}s",
                                                           MessageBoxButtons.OKCancel,
                                                           MessageBoxIcon.Question);
 
             if (opcao == DialogResult.OK)
             {
-                tema.Itens.ForEach(i => i.RemoverTema(tema));
+                entidade.Itens.ForEach(i => i.RemoverTema(entidade));
 
-                RepositorioTema.Excluir(tema);
+                RepositorioTema.Excluir(entidade);
 
                 CarregarEntidades();
             }
@@ -100,9 +99,9 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
         public override void AdicionarItens()
         {
-            EntidadeTema tema = TabelaTema.ObterEntidadeSelecionada();
+            EntidadeTema? entidade = TabelaTema.ObterEntidadeSelecionada();
 
-            if (tema == null)
+            if (entidade == null)
             {
                 MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
                                 $"Adição de Itens",
@@ -112,38 +111,34 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
                 return;
             }
 
-            DialogAdicionar dialogAdicionar = new DialogAdicionar();
-            dialogAdicionar.Tema = tema;
-            dialogAdicionar.Itens = RepositorioItemTema.SelecionarTodos();
-            dialogAdicionar.CarregarItens();
+            DialogAdicionar dialog = new DialogAdicionar(RepositorioItemTema.SelecionarTodos());
+            dialog.Tema = entidade;
 
-
-            DialogResult opcao = dialogAdicionar.ShowDialog();
+            DialogResult opcao = dialog.ShowDialog();
 
             if (opcao == DialogResult.OK)
             {
-                tema.Itens = dialogAdicionar.ObterItensMarcados();
+                entidade = dialog.Tema;
 
-                foreach(EntidadeItemTema i in tema.Itens)
+                List<EntidadeItemTema> itensChecked = dialog.ObterItensMarcados();
+                itensChecked.ForEach(i =>
                 {
-                    if (i.Temas.Contains(tema) == false)
-                    i.AdicionarTema(tema);
-                }
+                    i.AdicionarTema(entidade);
+                    entidade.AdicionarItemTema(i);
 
-                List<EntidadeItemTema> itensDesmarcados = dialogAdicionar.ObterItensDesmarcados();
+                });
 
-                foreach (EntidadeItemTema i in itensDesmarcados)
+                List<EntidadeItemTema> itensUnChecked = dialog.ObterItensDesmarcados();
+                itensUnChecked.ForEach(i =>
                 {
-                    if (i.Temas.Contains(tema) == true)
-                        i.RemoverTema(tema);
-                }
+                    i.RemoverTema(entidade);
+                    entidade.RemoverItemTema(i);
+                });
 
-                AtualizarValorTotalDosItens(tema);
+                entidade.AtualziarValorItens();
 
                 CarregarEntidades();
             }
-
-            
         }
 
         public override UserControl ObterListagem()
@@ -153,15 +148,6 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             CarregarEntidades();
 
             return TabelaTema;
-        }
-
-        private void AtualizarValorTotalDosItens(EntidadeTema tema)
-        {
-            tema.ValorItens = 0;
-            foreach (EntidadeItemTema i in tema.Itens)
-            {
-                tema.IncrementarValorItens(i.Valor);
-            }
         }
 
         private void CarregarEntidades()
