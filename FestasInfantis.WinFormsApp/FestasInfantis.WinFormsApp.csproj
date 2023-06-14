@@ -9,12 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ModuloAluguel\**" />
-    <Compile Remove="ModuloCliente\**" />
-    <EmbeddedResource Remove="ModuloAluguel\**" />
-    <EmbeddedResource Remove="ModuloCliente\**" />
-    <None Remove="ModuloAluguel\**" />
-    <None Remove="ModuloCliente\**" />
+    <Folder Include="ModuloTema\" />
+    <Folder Include="ModuloAluguel\" />
+	<Folder Include="ModuloCliente\" />
+	<Folder Include="ModuloItemTema\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ModuloCliente\DialogItemCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModuloCliente\TabelaItemCliente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

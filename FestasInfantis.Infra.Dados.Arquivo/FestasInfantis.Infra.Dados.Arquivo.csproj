@@ -7,12 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ModuloAluguel\**" />
-    <Compile Remove="ModuloCliente\**" />
-    <EmbeddedResource Remove="ModuloAluguel\**" />
-    <EmbeddedResource Remove="ModuloCliente\**" />
-    <None Remove="ModuloAluguel\**" />
-    <None Remove="ModuloCliente\**" />
+    <ProjectReference Include="..\FestasInfantis.Dominio\FestasInfantis.Dominio.csproj" />
   </ItemGroup>
 
   <ItemGroup>
