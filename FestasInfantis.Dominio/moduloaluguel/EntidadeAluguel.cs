@@ -13,17 +13,22 @@ namespace FestasInfantis.Dominio.ModuloAluguel
         public EntidadeAluguel() { }
         public string NomeDaFesta { get; set; }
         public double Desconto { get; set; }
-        public DateTime Data { get; set; }
+        public string Local { get; set; }
+        public DateTime DataFim { get; set; }
+        public DateTime DataInicio { get; set; }
         public EntidadeCliente Cliente { get; set; }
-        public List<EntidadeTema> Temas { get; set; }
+        public EntidadeTema Tema { get; set; }
 
-        public EntidadeAluguel(string nome, double desconto, DateTime data, EntidadeCliente c)
+        public EntidadeAluguel(string nome, double desconto, DateTime data, DateTime dataFim, EntidadeCliente c, EntidadeTema tema, string local)
         {
             NomeDaFesta = nome;
             Desconto = desconto;
-            Data = data;
-            Temas = new();
+            DataInicio = data;
+            DataFim = dataFim;
+            Tema = tema;
             Cliente = c;
+            Local = local;
+            //string dataFormatada = Data.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         public override List<string> Validar()
@@ -32,7 +37,9 @@ namespace FestasInfantis.Dominio.ModuloAluguel
 
             if (string.IsNullOrWhiteSpace(Desconto.ToString()))
                 erros.Add("Digite um Desconto Valido");
-            if (string.IsNullOrWhiteSpace(Data.ToString()))
+            if (string.IsNullOrWhiteSpace(DataInicio.ToString()))
+                erros.Add("Digite uma Data Valida");
+            if (string.IsNullOrWhiteSpace(DataFim.ToString()))
                 erros.Add("Digite uma Data Valida");
 
             return erros;
