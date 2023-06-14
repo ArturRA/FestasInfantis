@@ -12,7 +12,7 @@ namespace FestasInfantis.Dominio.ModuloCliente
         public string Telefone { get; set; }
         public string Email { get; set; }
 
-        public EntidadeCliente() { } //Não sei por que se eu não colocar aqui uma EntidadeCliente vazia ele só não deserializa
+        public EntidadeCliente() { }
         public EntidadeCliente(string nome, string telefone, string email)
         {
             Nome = nome;

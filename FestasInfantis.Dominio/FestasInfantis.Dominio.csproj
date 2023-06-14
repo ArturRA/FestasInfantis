@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloAluguel\" />
     <Folder Include="ModuloTema\" />
 	<Folder Include="ModuloCliente\" />
 	<Folder Include="ModuloItemTema\" />
