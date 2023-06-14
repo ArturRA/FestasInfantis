@@ -18,8 +18,9 @@ namespace FestasInfantis.Dominio.ModuloAluguel
         public DateTime DataInicio { get; set; }
         public EntidadeCliente Cliente { get; set; }
         public EntidadeTema Tema { get; set; }
+        public DateTime DataPagamentoRestante { get; set; }
 
-        public EntidadeAluguel(string nome, double desconto, DateTime data, DateTime dataFim, EntidadeCliente c, EntidadeTema tema, string local)
+        public EntidadeAluguel(string nome, double desconto, DateTime data, DateTime dataFim, EntidadeCliente c, EntidadeTema tema, string local, DateTime DataPgto)
         {
             NomeDaFesta = nome;
             Desconto = desconto;
@@ -28,6 +29,7 @@ namespace FestasInfantis.Dominio.ModuloAluguel
             Tema = tema;
             Cliente = c;
             Local = local;
+            DataPagamentoRestante = DataPgto;
             //string dataFormatada = Data.ToString("dd/MM/yyyy HH:mm:ss");
         }
 

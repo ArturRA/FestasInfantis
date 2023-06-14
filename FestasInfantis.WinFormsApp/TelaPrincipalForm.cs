@@ -8,6 +8,9 @@ using FestasInfantis.WinFormsApp.ModuloItemTema;
 using FestasInfantis.Dominio.ModuloTema;
 using FestasInfantis.Infra.Dados.Arquivo.ModuloTema;
 using FestasInfantis.WinFormsApp.ModuloTema;
+using FestasInfantis.Dominio.ModuloAluguel;
+using FestasInfantis.Infra.Dados.Arquivo.ModuloAluguel;
+using FestasInfantis.WinFormsApp.ModuloAluguel;
 
 namespace FestasInfantis.WinFormsApp
 {
@@ -18,8 +21,8 @@ namespace FestasInfantis.WinFormsApp
         private Controlador Controlador { get; set; }
 
         private ContextoDados ContextoDados { get; set; } = new ContextoDados(carregarDados: true);
-        //private IRepositorioCategoria RepositorioCategoria { get; set; }   Aluguel
-        private IRepositorioCliente repositorioCliente { get; set; }
+        private IRepositorioAluguel RepositorioAluguel { get; set; }
+        private IRepositorioCliente RepositorioCliente { get; set; }
         private IRepositorioItemTema RepositorioItemTema { get; set; }
         private IRepositorioTema RepositorioTema { get; set; }
 
@@ -34,8 +37,8 @@ namespace FestasInfantis.WinFormsApp
 
         private void ConfigurarRepositorios()
         {
-            //RepositorioCategoria = new RepositorioCategoriaEmArquivo(ContextoDados);      Aluguel
-            repositorioCliente = new RepositorioClienteEmArquivo(ContextoDados);
+            RepositorioAluguel = new RepositorioAluguelEmArquivo(ContextoDados);
+            RepositorioCliente = new RepositorioClienteEmArquivo(ContextoDados);
             RepositorioItemTema = new RepositorioItemTemaEmArquivo(ContextoDados);
             RepositorioTema = new RepositorioTemaEmArquivo(ContextoDados);
         }
@@ -47,14 +50,14 @@ namespace FestasInfantis.WinFormsApp
 
         private void alugueisMenuItem_Click(object sender, EventArgs e)
         {
-            //Controlador = new ControladorCompromisso(RepositorioCompromisso, RepositorioContato);
+            Controlador = new ControladorAluguel(RepositorioAluguel, RepositorioTema, RepositorioCliente);
 
             ConfigurarTelaPrincipal(Controlador);
         }
 
         private void clientesMenuItem_Click(object sender, EventArgs e)
         {
-            Controlador = new ControladorCliente(repositorioCliente);
+            Controlador = new ControladorCliente(RepositorioCliente);
 
             ConfigurarTelaPrincipal(Controlador);
         }

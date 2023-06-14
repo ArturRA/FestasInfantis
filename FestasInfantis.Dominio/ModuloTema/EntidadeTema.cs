@@ -1,4 +1,5 @@
-﻿using FestasInfantis.Dominio.ModuloItemTema;
+﻿using FestasInfantis.Dominio.ModuloAluguel;
+using FestasInfantis.Dominio.ModuloItemTema;
 using System.Drawing;
 
 namespace FestasInfantis.Dominio.ModuloTema
@@ -7,7 +8,7 @@ namespace FestasInfantis.Dominio.ModuloTema
     {
         public string Nome { get; set; }
         public List<EntidadeItemTema> Itens { get; set; }
-        // TODO public List<EntidadeAluguel> Alugueis { get; set; } Criar entidade Aluguel
+        public List<EntidadeAluguel> Alugueis { get; set; }
         public double PorcentagemEntrada { get; set; }
         public decimal ValorItens { get; set; }
 
@@ -50,6 +51,11 @@ namespace FestasInfantis.Dominio.ModuloTema
         {
             ValorItens = 0;
             ValorItens = Itens.Sum(itemTema => itemTema.Valor);
+        }
+
+        public override string? ToString()
+        {
+            return Nome;
         }
     }
 }
