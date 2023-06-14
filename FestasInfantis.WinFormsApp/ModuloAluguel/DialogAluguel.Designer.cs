@@ -75,6 +75,7 @@
             // 
             // cmbTema
             // 
+            cmbTema.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTema.FormattingEnabled = true;
             cmbTema.Location = new Point(119, 91);
             cmbTema.Name = "cmbTema";
@@ -151,6 +152,7 @@
             // 
             // cmbCliente
             // 
+            cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCliente.FormattingEnabled = true;
             cmbCliente.Location = new Point(119, 229);
             cmbCliente.Name = "cmbCliente";

@@ -32,9 +32,13 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             this.clientes = clientes;
 
-            CarregarTemas(temas);
+            cmbCliente.DisplayMember = "Nome";
+            cmbCliente.ValueMember = "Id";
+            cmbCliente.DataSource = clientes;
 
-            CarregarClientes(clientes);
+            cmbTema.DisplayMember = "Nome";
+            cmbTema.ValueMember = "Id";
+            cmbTema.DataSource = temas;
         }
 
         public EntidadeAluguel Aluguel
@@ -47,25 +51,23 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
             {
                 aluguel = value;
                 labelId.Text = aluguel.Id.ToString();
+                txtNome.Text = aluguel.NomeDaFesta;
+                cmbTema.SelectedItem = aluguel.Tema;
+                txtLocal.Text = aluguel.Local;
+                dtpDataInicio.Value = aluguel.DataInicio;
+                dtpDataFim.Value = aluguel.DataFim;
+                cmbCliente.SelectedItem = aluguel.Cliente;
+                txtDesconto.Text = Convert.ToString(aluguel.Desconto);
+                dtpPagamento.Value = aluguel.DataPagamentoRestante;
 
             }
-        }
-
-        public void CarregarTemas(List<EntidadeTema> temas)
-        {
-            temas.ForEach(t => cmbTema.Items.Add(t));
-        }
-
-        public void CarregarClientes(List<EntidadeCliente> clientes)
-        {
-            clientes.ForEach(c => cmbCliente.Items.Add(c));
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string nome = txtNome.Text;
 
-            EntidadeTema tema = (EntidadeTema)cmbTema.SelectedValue;
+            EntidadeTema tema = (EntidadeTema)cmbTema.SelectedItem;
 
             string local = txtLocal.Text;
 
@@ -73,7 +75,7 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             DateTime dataFim = dtpDataFim.Value;
 
-            EntidadeCliente cliente = (EntidadeCliente)cmbCliente.SelectedValue;
+            EntidadeCliente cliente = (EntidadeCliente)cmbCliente.SelectedItem;
 
             double desconto = Convert.ToDouble(txtDesconto.Text);
 

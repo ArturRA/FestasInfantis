@@ -39,7 +39,30 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            EntidadeAluguel? entidade = TabelaAluguel.ObterEntidadeSelecionada();
+
+            if (entidade == null)
+            {
+                MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
+                                $"Edição de Alugueis",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogAluguel dialog = new DialogAluguel(RepositorioTema.SelecionarTodos(), RepositorioCliente.SelecionarTodos());
+
+            dialog.Aluguel = entidade;
+
+            DialogResult opcao = dialog.ShowDialog();
+
+            if (opcao == DialogResult.OK)
+            {
+                RepositorioAluguel.Editar(dialog.Aluguel);
+
+                CarregarEntidades();
+            }
         }
 
         public override void Excluir()

@@ -55,6 +55,7 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             }
 
             DialogTema dialog = new DialogTema();
+
             dialog.Tema = entidade;
 
             DialogResult opcao = dialog.ShowDialog();
