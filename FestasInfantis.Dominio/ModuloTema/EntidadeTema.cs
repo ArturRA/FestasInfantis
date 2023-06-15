@@ -48,7 +48,7 @@ namespace FestasInfantis.Dominio.ModuloTema
                 Itens.Remove(Itens.Single(e => e.Id == entidade.Id));
         }
 
-        public void AtualziarValorItens()
+        public void AtualizarValorItens()
         {
             ValorItens = 0;
             ValorItens = Itens.Sum(itemTema => itemTema.Valor);

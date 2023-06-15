@@ -52,7 +52,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
             {
                 entidade = dialog.ItemTema;
 
-                entidade.Temas.ForEach(tema => tema.AtualziarValorItens());
+                entidade.Temas.ForEach(tema => tema.AtualizarValorItens());
 
                 RepositorioItemTema.Editar(entidade);
 
@@ -85,7 +85,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
                 {
                     t.RemoverItemTema(entidade);
 
-                    t.AtualziarValorItens();
+                    t.AtualizarValorItens();
                 });
 
                 RepositorioItemTema.Excluir(entidade);

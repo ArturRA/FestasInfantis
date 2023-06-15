@@ -139,7 +139,7 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
                     entidade.RemoverItemTema(i);
                 });
 
-                entidade.AtualziarValorItens();
+                entidade.AtualizarValorItens();
 
                 CarregarEntidades();
             }
