@@ -63,6 +63,20 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             if (opcao == DialogResult.OK)
             {
+                if (entidade.Tema != dialog.Aluguel.Tema)
+                {
+                    entidade.Tema.RemoverAluguel(entidade);
+
+                    dialog.Aluguel.Tema.AdicionarAluguel(entidade);
+                }
+
+                if (entidade.Cliente != dialog.Aluguel.Cliente)
+                {
+                    entidade.Cliente.RemoverAluguel(entidade);
+
+                    dialog.Aluguel.Cliente.AdicionarAluguel(entidade);
+                }
+
                 RepositorioAluguel.Editar(dialog.Aluguel);
 
                 CarregarEntidades();
