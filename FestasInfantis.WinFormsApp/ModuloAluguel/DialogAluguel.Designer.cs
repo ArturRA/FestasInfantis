@@ -132,6 +132,8 @@
             // 
             // dtpDataInicio
             // 
+            dtpDataInicio.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpDataInicio.Format = DateTimePickerFormat.Custom;
             dtpDataInicio.Location = new Point(119, 160);
             dtpDataInicio.Name = "dtpDataInicio";
             dtpDataInicio.Size = new Size(266, 23);
@@ -175,6 +177,8 @@
             // 
             // dtpDataFim
             // 
+            dtpDataFim.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpDataFim.Format = DateTimePickerFormat.Custom;
             dtpDataFim.Location = new Point(119, 195);
             dtpDataFim.Name = "dtpDataFim";
             dtpDataFim.Size = new Size(266, 23);
@@ -191,6 +195,7 @@
             // 
             // dtpPagamento
             // 
+            dtpPagamento.Format = DateTimePickerFormat.Short;
             dtpPagamento.Location = new Point(119, 298);
             dtpPagamento.Name = "dtpPagamento";
             dtpPagamento.Size = new Size(266, 23);

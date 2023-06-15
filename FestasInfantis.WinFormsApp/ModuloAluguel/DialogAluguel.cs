@@ -21,8 +21,9 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
         public EntidadeAluguel aluguel;
         private List<EntidadeTema> temas;
         private List<EntidadeCliente> clientes;
+        private List<EntidadeAluguel> alugueis;
 
-        public DialogAluguel(List<EntidadeTema> temas, List<EntidadeCliente> clientes)
+        public DialogAluguel(List<EntidadeTema> temas, List<EntidadeCliente> clientes, List<EntidadeAluguel> alugueis)
         {
             InitializeComponent();
 
@@ -31,6 +32,8 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
             this.temas = temas;
 
             this.clientes = clientes;
+
+            this.alugueis = alugueis;
 
             cmbCliente.DisplayMember = "Nome";
             cmbCliente.ValueMember = "Id";
@@ -83,7 +86,7 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             aluguel = new EntidadeAluguel(nome, desconto, dataInicio, dataFim, cliente, tema, local, dataPgto);
 
-            List<string> resultado = aluguel.Validar();
+            List<string> resultado = aluguel.Validar(alugueis);
 
             if (resultado.Count > 0)
             {
@@ -131,6 +134,8 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
                 decimal entrada = valor * Convert.ToDecimal((tema.PorcentagemEntrada / 100));
 
                 txtEntrada.Text = Convert.ToString(entrada);
+
+                TelaPrincipalForm.Instancia.AtualizarToolStrip("");
 
             }
 

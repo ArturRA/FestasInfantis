@@ -33,16 +33,42 @@ namespace FestasInfantis.Dominio.ModuloAluguel
             //string dataFormatada = Data.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
-        public override List<string> Validar()
+        public List<string> Validar(List<EntidadeAluguel> alugueis)
         {
             List<string> erros = new List<string>();
 
+            if (string.IsNullOrWhiteSpace(NomeDaFesta))
+                erros.Add("Digite um Nome Valido");
+            if (string.IsNullOrWhiteSpace(Local))
+                erros.Add("Digite um Local Valido");
             if (string.IsNullOrWhiteSpace(Desconto.ToString()))
                 erros.Add("Digite um Desconto Valido");
+            if (Tema == null)
+                erros.Add("Selecione um Tema");
+            if (Cliente == null)
+                erros.Add("Selecione um Cliente");
             if (string.IsNullOrWhiteSpace(DataInicio.ToString()))
-                erros.Add("Digite uma Data Valida");
+                erros.Add("Digite uma Data de inicio Valida");
             if (string.IsNullOrWhiteSpace(DataFim.ToString()))
-                erros.Add("Digite uma Data Valida");
+                erros.Add("Digite uma Data do fim Valida");
+            if (string.IsNullOrWhiteSpace(DataPagamentoRestante.ToString()))
+                erros.Add("Digite uma Data do pagamento restante Valida");
+            if (DataInicio > DataFim)
+                erros.Add("A Data de início não pode ser maior que a Data do fim");
+            alugueis.ForEach(a =>
+            {
+                if (DataInicio > a.DataInicio && DataInicio < a.DataFim
+                || DataFim > a.DataInicio && DataFim < a.DataFim
+                || DataInicio > a.DataInicio && DataFim < a.DataFim
+                || DataInicio < a.DataInicio && DataFim > a.DataFim)
+                {
+                    a.Tema.Itens.ForEach(i =>
+                    {
+                        if (Tema.Itens.Contains(i))
+                            erros.Add("Esse Tema possui Itens que serão usados no período escolhido");
+                    });
+                }
+            });
 
             return erros;
         }

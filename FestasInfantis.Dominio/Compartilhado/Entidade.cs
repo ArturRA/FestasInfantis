@@ -21,6 +21,7 @@ namespace FestasInfantis.Dominio.Compartilhado
             });
         }
 
-        public abstract List<string> Validar();
+        public virtual List<string> Validar()
+        { return null; }
     }
 }

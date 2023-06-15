@@ -24,7 +24,7 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
         public override void Inserir()
         {
-            DialogAluguel dialog = new DialogAluguel(RepositorioTema.SelecionarTodos(), RepositorioCliente.SelecionarTodos()) ;
+            DialogAluguel dialog = new DialogAluguel(RepositorioTema.SelecionarTodos(), RepositorioCliente.SelecionarTodos(), RepositorioAluguel.SelecionarTodos());
             DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -55,7 +55,7 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
                 return;
             }
 
-            DialogAluguel dialog = new DialogAluguel(RepositorioTema.SelecionarTodos(), RepositorioCliente.SelecionarTodos());
+            DialogAluguel dialog = new DialogAluguel(RepositorioTema.SelecionarTodos(), RepositorioCliente.SelecionarTodos(), RepositorioAluguel.SelecionarTodos());
 
             dialog.Aluguel = entidade;
 
