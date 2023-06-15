@@ -48,13 +48,18 @@
             txtNome = new TextBox();
             txtDesconto = new TextBox();
             label9 = new Label();
+            label10 = new Label();
+            txtValor = new TextBox();
+            btnValor = new Button();
+            txtEntrada = new TextBox();
+            label11 = new Label();
             SuspendLayout();
             // 
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(368, 345);
+            btnCancelar.Location = new Point(368, 374);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 10;
@@ -65,7 +70,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(287, 345);
+            btnGravar.Location = new Point(287, 374);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 9;
@@ -223,11 +228,59 @@
             label9.TabIndex = 27;
             label9.Text = "Desconto:";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(105, 358);
+            label10.Name = "label10";
+            label10.Size = new Size(36, 15);
+            label10.TabIndex = 29;
+            label10.Text = "Valor:";
+            // 
+            // txtValor
+            // 
+            txtValor.Location = new Point(147, 355);
+            txtValor.Name = "txtValor";
+            txtValor.Size = new Size(100, 23);
+            txtValor.TabIndex = 30;
+            // 
+            // btnValor
+            // 
+            btnValor.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnValor.Location = new Point(12, 358);
+            btnValor.Name = "btnValor";
+            btnValor.Size = new Size(75, 41);
+            btnValor.TabIndex = 31;
+            btnValor.Text = "Checar Valor";
+            btnValor.UseVisualStyleBackColor = true;
+            btnValor.Click += btnValor_Click;
+            // 
+            // txtEntrada
+            // 
+            txtEntrada.Location = new Point(147, 392);
+            txtEntrada.Name = "txtEntrada";
+            txtEntrada.Size = new Size(100, 23);
+            txtEntrada.TabIndex = 33;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(94, 395);
+            label11.Name = "label11";
+            label11.Size = new Size(50, 15);
+            label11.TabIndex = 32;
+            label11.Text = "Entrada:";
+            // 
             // DialogAluguel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(455, 398);
+            ClientSize = new Size(455, 427);
+            Controls.Add(txtEntrada);
+            Controls.Add(label11);
+            Controls.Add(btnValor);
+            Controls.Add(txtValor);
+            Controls.Add(label10);
             Controls.Add(txtDesconto);
             Controls.Add(label9);
             Controls.Add(txtNome);
@@ -276,5 +329,10 @@
         private TextBox txtNome;
         private TextBox txtDesconto;
         private Label label9;
+        private Label label10;
+        private TextBox txtValor;
+        private Button btnValor;
+        private TextBox txtEntrada;
+        private Label label11;
     }
 }

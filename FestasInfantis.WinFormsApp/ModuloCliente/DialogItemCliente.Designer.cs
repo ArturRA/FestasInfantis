@@ -38,6 +38,7 @@
             btnCancelar = new Button();
             txtEmail = new TextBox();
             label2 = new Label();
+            cbAntigo = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -94,7 +95,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(181, 146);
+            btnGravar.Location = new Point(181, 171);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 6;
@@ -106,7 +107,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(262, 146);
+            btnCancelar.Location = new Point(262, 171);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 7;
@@ -130,11 +131,22 @@
             label2.TabIndex = 9;
             label2.Text = "E-mail:";
             // 
+            // cbAntigo
+            // 
+            cbAntigo.AutoSize = true;
+            cbAntigo.Location = new Point(87, 144);
+            cbAntigo.Name = "cbAntigo";
+            cbAntigo.Size = new Size(69, 19);
+            cbAntigo.TabIndex = 10;
+            cbAntigo.Text = "É antigo";
+            cbAntigo.UseVisualStyleBackColor = true;
+            // 
             // DialogItemCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(349, 199);
+            ClientSize = new Size(349, 224);
+            Controls.Add(cbAntigo);
             Controls.Add(label2);
             Controls.Add(txtEmail);
             Controls.Add(btnCancelar);
@@ -163,5 +175,6 @@
         private Button btnCancelar;
         private TextBox txtEmail;
         private Label label2;
+        private CheckBox cbAntigo;
     }
 }

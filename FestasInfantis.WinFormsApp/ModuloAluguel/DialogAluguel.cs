@@ -100,5 +100,55 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
             }
 
         }
+
+        private void btnValor_Click(object sender, EventArgs e)
+        {
+            EntidadeTema tema = (EntidadeTema)cmbTema.SelectedItem;
+
+            EntidadeCliente cliente = (EntidadeCliente)cmbCliente.SelectedItem;
+
+            double desconto = Convert.ToDouble(txtDesconto.Text);
+
+            List<string> resultado = ValidarValor(tema, cliente, desconto);
+
+            if (resultado.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarToolStrip(resultado[0]);
+            }
+            else
+            {
+                decimal valor;
+
+                valor = tema.ValorItens;
+
+                if (cliente.Antigo == true)
+                {
+                    valor = valor * Convert.ToDecimal((desconto / 100));
+                }
+
+                txtValor.Text = Convert.ToString(valor);
+
+                decimal entrada = valor * Convert.ToDecimal((tema.PorcentagemEntrada / 100));
+
+                txtEntrada.Text = Convert.ToString(entrada);
+
+            }
+
+        }
+
+        private List<string> ValidarValor(EntidadeTema tema, EntidadeCliente cliente, double desconto)
+        {
+            List<string> erros = new List<string>();
+
+            if (tema == null)
+                erros.Add("Selecione um Tema");
+            if (cliente == null)
+                erros.Add("Selecione um Cliente");
+            if (string.IsNullOrWhiteSpace(desconto.ToString()))
+                erros.Add("Digite um Desconto Valido");
+
+            return erros;
+        }
     }
 }
+

@@ -12,14 +12,16 @@ namespace FestasInfantis.Dominio.ModuloCliente
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public bool Antigo { get; set; }
         public List<EntidadeAluguel> Alugueis { get; set; }
 
         public EntidadeCliente() { }
-        public EntidadeCliente(string nome, string telefone, string email)
+        public EntidadeCliente(string nome, string telefone, string email, bool antigo)
         {
             Nome = nome;
             Telefone = telefone;
             Email = email;
+            Antigo = antigo;
             Alugueis = new List<EntidadeAluguel>();
         }
 

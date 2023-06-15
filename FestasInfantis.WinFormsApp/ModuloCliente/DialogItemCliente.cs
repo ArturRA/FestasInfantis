@@ -35,6 +35,7 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
                 txtNome.Text = EntidadeCliente.Nome;
                 txtTel.Text = EntidadeCliente.Telefone;
                 txtEmail.Text = EntidadeCliente.Email;
+                cbAntigo.Checked = EntidadeCliente.Antigo;
             }
             get
             {
@@ -50,7 +51,9 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
             string email = txtEmail.Text;
 
-            EntidadeCliente = new EntidadeCliente(nome, telefone, email);
+            bool antigo = cbAntigo.Checked;
+
+            EntidadeCliente = new EntidadeCliente(nome, telefone, email, antigo);
 
             List<string> resultado = EntidadeCliente.Validar();
             if (resultado.Count > 0)
