@@ -21,6 +21,7 @@ namespace FestasInfantis.Dominio.ModuloTema
             Nome = nome;
             Itens = new List<EntidadeItemTema>();
             PorcentagemEntrada = porcentagemEntrada;
+            Alugueis = new List<EntidadeAluguel>();
         }
 
         public override List<string> Validar()
@@ -56,6 +57,18 @@ namespace FestasInfantis.Dominio.ModuloTema
         public override string? ToString()
         {
             return Nome;
+        }
+
+        public void AdicionarAluguel(EntidadeAluguel entidade)
+        {
+            if (!Alugueis.Any(e => e.Id == entidade.Id))
+                Alugueis.Add(entidade);
+        }
+
+        public void RemoverAluguel(EntidadeAluguel entidade)
+        {
+            if (Alugueis.Any(e => e.Id == entidade.Id))
+                Alugueis.Remove(Alugueis.Single(e => e.Id == entidade.Id));
         }
     }
 }

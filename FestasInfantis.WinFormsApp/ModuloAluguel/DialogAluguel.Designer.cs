@@ -181,7 +181,7 @@
             label7.Name = "label7";
             label7.Size = new Size(117, 38);
             label7.TabIndex = 24;
-            label7.Text = "Data Pagamentoto Valor Restante:";
+            label7.Text = "Data Pagamento Valor Restante:";
             label7.TextAlign = ContentAlignment.MiddleRight;
             // 
             // dtpPagamento

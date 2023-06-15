@@ -33,6 +33,10 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
                 RepositorioAluguel.Inserir(entidade);
 
+                entidade.Tema.AdicionarAluguel(entidade);
+
+                entidade.Cliente.AdicionarAluguel(entidade);
+
                 CarregarEntidades();
             }
         }
@@ -67,7 +71,33 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            EntidadeAluguel? entidade = TabelaAluguel.ObterEntidadeSelecionada();
+
+            if (entidade == null)
+            {
+                MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
+                                $"Exclusão de Alugueis",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcao = MessageBox.Show($"Deseja excluir o {TipoDoCadastro} {entidade.NomeDaFesta}?",
+                                                          $"Exclusão de Alugueis",
+                                                          MessageBoxButtons.OKCancel,
+                                                          MessageBoxIcon.Question);
+
+            if (opcao == DialogResult.OK)
+            {
+                entidade.Tema.RemoverAluguel(entidade);
+
+                entidade.Cliente.RemoverAluguel(entidade);
+
+                RepositorioAluguel.Excluir(entidade);
+
+                CarregarEntidades();
+            }
         }
 
         public override UserControl ObterListagem()

@@ -58,6 +58,9 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
             dialog.Tema = entidade;
 
+            dialog.itens = entidade.Itens;
+            dialog.alugueis = entidade.Alugueis;
+
             DialogResult opcao = dialog.ShowDialog();
 
             if (opcao == DialogResult.OK)

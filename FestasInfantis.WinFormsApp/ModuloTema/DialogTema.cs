@@ -1,10 +1,14 @@
-﻿using FestasInfantis.Dominio.ModuloTema;
+﻿using FestasInfantis.Dominio.ModuloAluguel;
+using FestasInfantis.Dominio.ModuloItemTema;
+using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.WinFormsApp.ModuloTema
 {
     public partial class DialogTema : Form
     {
         private EntidadeTema tema;
+        public List<EntidadeItemTema> itens;
+        public List<EntidadeAluguel> alugueis;
         public DialogTema()
         {
             InitializeComponent();
@@ -46,7 +50,11 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             else
             {
                 if (labelId.Text != "0")
+                {
                     tema.Id = Convert.ToInt32(labelId.Text);
+                    tema.Itens = itens;
+                    tema.Alugueis = alugueis;
+                }
                 TelaPrincipalForm.Instancia.AtualizarToolStrip("");
             }
         }

@@ -43,62 +43,60 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(35, 12);
+            label1.Location = new Point(59, 9);
             label1.Name = "label1";
-            label1.Size = new Size(25, 20);
+            label1.Size = new Size(20, 15);
             label1.TabIndex = 0;
             label1.Text = "Id:";
             // 
             // labelId
             // 
             labelId.AutoSize = true;
-            labelId.Location = new Point(65, 12);
+            labelId.Location = new Point(87, 9);
             labelId.Name = "labelId";
-            labelId.Size = new Size(17, 20);
+            labelId.Size = new Size(13, 15);
             labelId.TabIndex = 1;
             labelId.Text = "0";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(9, 49);
+            label3.Location = new Point(36, 37);
             label3.Name = "label3";
-            label3.Size = new Size(53, 20);
+            label3.Size = new Size(43, 15);
             label3.TabIndex = 2;
             label3.Text = "Nome:";
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(65, 45);
-            txtNome.Margin = new Padding(3, 4, 3, 4);
+            txtNome.Location = new Point(87, 34);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(261, 27);
+            txtNome.Size = new Size(227, 23);
             txtNome.TabIndex = 3;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(9, 98);
+            label4.Location = new Point(25, 74);
             label4.Name = "label4";
-            label4.Size = new Size(69, 20);
+            label4.Size = new Size(54, 15);
             label4.TabIndex = 4;
             label4.Text = "Telefone:";
             // 
             // txtTel
             // 
-            txtTel.Location = new Point(84, 95);
-            txtTel.Margin = new Padding(3, 4, 3, 4);
+            txtTel.Location = new Point(87, 71);
             txtTel.Name = "txtTel";
-            txtTel.Size = new Size(242, 27);
+            txtTel.Size = new Size(227, 23);
             txtTel.TabIndex = 5;
             // 
             // btnGravar
             // 
+            btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(148, 197);
-            btnGravar.Margin = new Padding(3, 4, 3, 4);
+            btnGravar.Location = new Point(181, 146);
             btnGravar.Name = "btnGravar";
-            btnGravar.Size = new Size(86, 55);
+            btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 6;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
@@ -106,36 +104,37 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(240, 197);
-            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Location = new Point(262, 146);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(86, 55);
+            btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(67, 140);
+            txtEmail.Location = new Point(87, 105);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(259, 27);
+            txtEmail.Size = new Size(227, 23);
             txtEmail.TabIndex = 8;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 143);
+            label2.Location = new Point(36, 107);
             label2.Name = "label2";
-            label2.Size = new Size(55, 20);
+            label2.Size = new Size(44, 15);
             label2.TabIndex = 9;
             label2.Text = "E-mail:";
             // 
             // DialogItemCliente
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(358, 265);
+            ClientSize = new Size(349, 199);
             Controls.Add(label2);
             Controls.Add(txtEmail);
             Controls.Add(btnCancelar);
@@ -146,7 +145,6 @@
             Controls.Add(label3);
             Controls.Add(labelId);
             Controls.Add(label1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "DialogItemCliente";
             Text = "DialogItemTema";
             ResumeLayout(false);

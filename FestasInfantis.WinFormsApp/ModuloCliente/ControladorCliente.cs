@@ -93,6 +93,7 @@ namespace FestasInfantis.WinFormsApp.ModuloCliente
 
             DialogItemCliente dialog = new DialogItemCliente();
             dialog.Cliente = entidade;
+            dialog.alugueis = entidade.Alugueis;
 
             DialogResult opcaoEscolhida = dialog.ShowDialog();
 
