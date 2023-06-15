@@ -223,6 +223,7 @@
             txtDesconto.Name = "txtDesconto";
             txtDesconto.Size = new Size(266, 23);
             txtDesconto.TabIndex = 28;
+            txtDesconto.Text = "0";
             // 
             // label9
             // 
@@ -246,6 +247,7 @@
             // 
             txtValor.Location = new Point(147, 355);
             txtValor.Name = "txtValor";
+            txtValor.ReadOnly = true;
             txtValor.Size = new Size(100, 23);
             txtValor.TabIndex = 30;
             // 
@@ -264,6 +266,7 @@
             // 
             txtEntrada.Location = new Point(147, 392);
             txtEntrada.Name = "txtEntrada";
+            txtEntrada.ReadOnly = true;
             txtEntrada.Size = new Size(100, 23);
             txtEntrada.TabIndex = 33;
             // 

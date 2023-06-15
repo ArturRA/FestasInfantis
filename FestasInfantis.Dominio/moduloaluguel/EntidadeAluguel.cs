@@ -10,7 +10,6 @@ namespace FestasInfantis.Dominio.ModuloAluguel
 {
     public class EntidadeAluguel : Entidade<EntidadeAluguel>
     {
-        public EntidadeAluguel() { }
         public string NomeDaFesta { get; set; }
         public double Desconto { get; set; }
         public string Local { get; set; }
@@ -20,6 +19,7 @@ namespace FestasInfantis.Dominio.ModuloAluguel
         public EntidadeTema Tema { get; set; }
         public DateTime DataPagamentoRestante { get; set; }
 
+        public EntidadeAluguel() { }
         public EntidadeAluguel(string nome, double desconto, DateTime data, DateTime dataFim, EntidadeCliente c, EntidadeTema tema, string local, DateTime DataPgto)
         {
             NomeDaFesta = nome;
@@ -30,7 +30,13 @@ namespace FestasInfantis.Dominio.ModuloAluguel
             Cliente = c;
             Local = local;
             DataPagamentoRestante = DataPgto;
-            //string dataFormatada = Data.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        public EntidadeAluguel(double desconto, EntidadeCliente cliente, EntidadeTema tema) 
+        {
+            Desconto = desconto;
+            Cliente = cliente;
+            Tema = tema;
         }
 
         public List<string> Validar(List<EntidadeAluguel> alugueis)
@@ -69,6 +75,20 @@ namespace FestasInfantis.Dominio.ModuloAluguel
                     });
                 }
             });
+
+            return erros;
+        }
+
+        public List<string> ValidarValor()
+        {
+            List<string> erros = new List<string>();
+
+            if (Tema == null)
+                erros.Add("Selecione um Tema");
+            if (Cliente == null)
+                erros.Add("Selecione um Cliente");
+            if (string.IsNullOrWhiteSpace(Desconto.ToString()))
+                erros.Add("Digite um Desconto Valido");
 
             return erros;
         }

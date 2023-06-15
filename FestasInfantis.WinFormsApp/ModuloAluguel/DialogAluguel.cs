@@ -112,7 +112,9 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             double desconto = Convert.ToDouble(txtDesconto.Text);
 
-            List<string> resultado = ValidarValor(tema, cliente, desconto);
+            EntidadeAluguel valorAluguel = new EntidadeAluguel(desconto, cliente, tema);
+
+            List<string> resultado = valorAluguel.ValidarValor();
 
             if (resultado.Count > 0)
             {
@@ -126,7 +128,7 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
                 if (cliente.Antigo == true)
                 {
-                    valor = valor * Convert.ToDecimal((desconto / 100));
+                    valor = valor - (valor * Convert.ToDecimal((desconto / 100)));
                 }
 
                 txtValor.Text = Convert.ToString(valor);
@@ -139,20 +141,6 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             }
 
-        }
-
-        private List<string> ValidarValor(EntidadeTema tema, EntidadeCliente cliente, double desconto)
-        {
-            List<string> erros = new List<string>();
-
-            if (tema == null)
-                erros.Add("Selecione um Tema");
-            if (cliente == null)
-                erros.Add("Selecione um Cliente");
-            if (string.IsNullOrWhiteSpace(desconto.ToString()))
-                erros.Add("Digite um Desconto Valido");
-
-            return erros;
         }
     }
 }
