@@ -74,6 +74,16 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
                 return;
             }
 
+            if (entidade.Temas.Count > 0)
+            {
+                MessageBox.Show($"{TipoDoCadastro} esta sendo utilizada em outro lugar!",
+                                $"Exclusão de {TipoDoCadastro}s",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o {TipoDoCadastro} {entidade.Nome}?",
                                                           $"Exclusão de {TipoDoCadastro}s",
                                                           MessageBoxButtons.OKCancel,
@@ -81,13 +91,6 @@ namespace FestasInfantis.WinFormsApp.ModuloItemTema
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                entidade.Temas.ForEach(t =>
-                {
-                    t.RemoverItemTema(entidade);
-
-                    t.AtualizarValorItens();
-                });
-
                 RepositorioItemTema.Excluir(entidade);
 
                 CarregarEntidades();

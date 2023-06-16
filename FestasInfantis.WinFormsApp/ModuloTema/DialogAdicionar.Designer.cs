@@ -30,7 +30,7 @@
         {
             label1 = new Label();
             lblTema = new Label();
-            listItens = new CheckedListBox();
+            clbItensTema = new CheckedListBox();
             btnCancelar = new Button();
             btnGravar = new Button();
             SuspendLayout();
@@ -57,11 +57,11 @@
             // 
             // listItens
             // 
-            listItens.FormattingEnabled = true;
-            listItens.Location = new Point(12, 68);
-            listItens.Name = "listItens";
-            listItens.Size = new Size(252, 220);
-            listItens.TabIndex = 2;
+            clbItensTema.FormattingEnabled = true;
+            clbItensTema.Location = new Point(12, 68);
+            clbItensTema.Name = "listItens";
+            clbItensTema.Size = new Size(252, 220);
+            clbItensTema.TabIndex = 2;
             // 
             // btnCancelar
             // 
@@ -92,7 +92,7 @@
             ClientSize = new Size(276, 364);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
-            Controls.Add(listItens);
+            Controls.Add(clbItensTema);
             Controls.Add(lblTema);
             Controls.Add(label1);
             Name = "DialogAdicionar";
@@ -105,7 +105,7 @@
 
         private Label label1;
         private Label lblTema;
-        private CheckedListBox listItens;
+        private CheckedListBox clbItensTema;
         private Button btnCancelar;
         private Button btnGravar;
     }

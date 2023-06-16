@@ -1,27 +1,13 @@
-﻿using FestasInfantis.Dominio.Compartilhado;
 using FestasInfantis.Dominio.ModuloAluguel;
 using FestasInfantis.Dominio.ModuloCliente;
-using FestasInfantis.Dominio.ModuloItemTema;
 using FestasInfantis.Dominio.ModuloTema;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FestasInfantis.WinFormsApp.ModuloAluguel
 {
     public partial class DialogAluguel : Form
     {
         public EntidadeAluguel aluguel;
-        private List<EntidadeTema> temas;
-        private List<EntidadeCliente> clientes;
-        private List<EntidadeAluguel> alugueis;
+        private List<EntidadeAluguel> Alugueis { get; set; }
 
         public DialogAluguel(List<EntidadeTema> temas, List<EntidadeCliente> clientes, List<EntidadeAluguel> alugueis)
         {
@@ -29,11 +15,7 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             this.ConfigurarDialog();
 
-            this.temas = temas;
-
-            this.clientes = clientes;
-
-            this.alugueis = alugueis;
+            this.Alugueis = alugueis;
 
             cmbCliente.DisplayMember = "Nome";
             cmbCliente.ValueMember = "Id";
@@ -86,7 +68,7 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             aluguel = new EntidadeAluguel(nome, desconto, dataInicio, dataFim, cliente, tema, local, dataPgto);
 
-            List<string> resultado = aluguel.Validar(alugueis);
+            List<string> resultado = aluguel.Validar(Alugueis);
 
             if (resultado.Count > 0)
             {
@@ -128,19 +110,17 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
                 if (cliente.Antigo == true)
                 {
-                    valor = valor - (valor * Convert.ToDecimal((desconto / 100)));
+                    valor = Math.Round(valor - (valor * Convert.ToDecimal((desconto / 100))), 2);
                 }
 
                 txtValor.Text = Convert.ToString(valor);
 
-                decimal entrada = valor * Convert.ToDecimal((tema.PorcentagemEntrada / 100));
+                decimal entrada = Math.Round(valor * Convert.ToDecimal((tema.PorcentagemEntrada / 100)), 2);
 
                 txtEntrada.Text = Convert.ToString(entrada);
 
                 TelaPrincipalForm.Instancia.AtualizarToolStrip("");
-
             }
-
         }
     }
 }

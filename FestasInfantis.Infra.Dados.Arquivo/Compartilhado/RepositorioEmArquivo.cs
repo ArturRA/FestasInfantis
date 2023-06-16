@@ -39,6 +39,7 @@
         {
             List<TipoEntidade> registros = ObterRegistros();
 
+            entidade.RemoverReferenciasDeMemoria();
             registros.Remove(entidade);
 
             ContextoDados.GravarEmArquivoJson();

@@ -1,5 +1,4 @@
 ﻿using FestasInfantis.Dominio.ModuloTema;
-using FestasInfantis.Infra.Dados.Arquivo.Compartilhado;
 
 namespace FestasInfantis.Infra.Dados.Arquivo.ModuloTema
 {

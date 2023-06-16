@@ -1,10 +1,4 @@
 ﻿using FestasInfantis.Dominio.ModuloCliente;
-using FestasInfantis.Dominio.ModuloItemTema;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FestasInfantis.Infra.Dados.Arquivo.ModuloCliente
 {

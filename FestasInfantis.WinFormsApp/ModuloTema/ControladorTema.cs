@@ -1,8 +1,5 @@
-﻿using FestasInfantis.Dominio.Compartilhado;
-using FestasInfantis.Dominio.ModuloItemTema;
+﻿using FestasInfantis.Dominio.ModuloItemTema;
 using FestasInfantis.Dominio.ModuloTema;
-using FestasInfantis.WinFormsApp.Compartilhado;
-using FestasInfantis.WinFormsApp.ModuloItemTema;
 
 namespace FestasInfantis.WinFormsApp.ModuloTema
 {
@@ -86,6 +83,15 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
                 return;
             }
 
+            if (entidade.Alugueis.Count > 0)
+            {
+                MessageBox.Show($"{TipoDoCadastro} esta sendo utilizada em outro lugar!",
+                                $"Exclusão de {TipoDoCadastro}s",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+                return;
+            }
+
             DialogResult opcao = MessageBox.Show($"Deseja excluir o {TipoDoCadastro} {entidade.Nome}?",
                                                           $"Exclusão de {TipoDoCadastro}s",
                                                           MessageBoxButtons.OKCancel,
@@ -93,8 +99,6 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
             if (opcao == DialogResult.OK)
             {
-                entidade.Itens.ForEach(i => i.RemoverTema(entidade));
-
                 RepositorioTema.Excluir(entidade);
 
                 CarregarEntidades();
@@ -124,22 +128,8 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
             {
                 entidade = dialog.Tema;
 
-                List<EntidadeItemTema> itensChecked = dialog.ObterItensMarcados();
-                itensChecked.ForEach(i =>
-                {
-                    i.AdicionarTema(entidade);
-                    entidade.AdicionarItemTema(i);
-
-                });
-
-                List<EntidadeItemTema> itensUnChecked = dialog.ObterItensDesmarcados();
-                itensUnChecked.ForEach(i =>
-                {
-                    i.RemoverTema(entidade);
-                    entidade.RemoverItemTema(i);
-                });
-
-                entidade.AtualizarValorItens();
+                entidade.AdicionarItensTema(dialog.ObterItensMarcados());
+                entidade.RemoverItensTema(dialog.ObterItensDesmarcados());
 
                 CarregarEntidades();
             }

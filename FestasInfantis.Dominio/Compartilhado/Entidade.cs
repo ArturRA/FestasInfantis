@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FestasInfantis.Dominio.Compartilhado
+﻿namespace FestasInfantis.Dominio.Compartilhado
 {
     public abstract class Entidade<TipoEntidade>
         where TipoEntidade : Entidade<TipoEntidade>
@@ -21,7 +15,11 @@ namespace FestasInfantis.Dominio.Compartilhado
             });
         }
 
-        public virtual List<string> Validar()
-        { return null; }
+        public virtual void RemoverReferenciasDeMemoria()
+        {
+        }
+
+        public abstract List<string> Validar();
+        //{ return null; }
     }
 }

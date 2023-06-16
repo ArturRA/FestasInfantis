@@ -1,6 +1,5 @@
 ﻿using FestasInfantis.Dominio.ModuloAluguel;
 using FestasInfantis.Dominio.ModuloItemTema;
-using System.Drawing;
 
 namespace FestasInfantis.Dominio.ModuloTema
 {
@@ -36,27 +35,56 @@ namespace FestasInfantis.Dominio.ModuloTema
             return erros;
         }
 
+        public override void RemoverReferenciasDeMemoria()
+        {
+            this.Itens.ForEach(i => i.RemoverTema(this));
+        }
+
+        public override string? ToString()
+        {
+            return Nome;
+        }
+
+        public void AdicionarItensTema(List<EntidadeItemTema> itensChecked)
+        {
+            itensChecked.ForEach(i =>
+            {
+                this.AdicionarItemTema(i);
+                i.AdicionarTema(this);
+            });
+        }
+
         public void AdicionarItemTema(EntidadeItemTema entidade)
         {
             if (!Itens.Any(e => e.Id == entidade.Id))
+            {
                 Itens.Add(entidade);
+                this.AtualizarValorItens();
+            }
+        }
+
+        public void RemoverItensTema(List<EntidadeItemTema> itensUnChecked)
+        {
+            itensUnChecked.ForEach(i =>
+            {
+                this.RemoverItemTema(i);
+                i.RemoverTema(this);
+            });
         }
 
         public void RemoverItemTema(EntidadeItemTema entidade)
         {
             if (Itens.Any(e => e.Id == entidade.Id))
+            {
                 Itens.Remove(Itens.Single(e => e.Id == entidade.Id));
+                this.AtualizarValorItens();
+            }
         }
 
         public void AtualizarValorItens()
         {
             ValorItens = 0;
             ValorItens = Itens.Sum(itemTema => itemTema.Valor);
-        }
-
-        public override string? ToString()
-        {
-            return Nome;
         }
 
         public void AdicionarAluguel(EntidadeAluguel entidade)

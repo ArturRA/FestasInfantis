@@ -1,9 +1,5 @@
 ﻿using FestasInfantis.Dominio.ModuloAluguel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace FestasInfantis.Dominio.ModuloCliente
 {
@@ -29,11 +25,15 @@ namespace FestasInfantis.Dominio.ModuloCliente
         {
             List<string> listaErros = new List<string>();
 
-            if (string.IsNullOrEmpty(Nome)) listaErros.Add("O campo 'nome' não pode estar vazio");
+            if (string.IsNullOrEmpty(Nome))
+                listaErros.Add("O campo 'nome' não pode estar vazio");
 
-            if (string.IsNullOrEmpty(Telefone)) listaErros.Add("O campo 'telefone' não pode estar vazio");
+            if (string.IsNullOrWhiteSpace(Telefone) || Telefone.Trim().Length < 14)
+                listaErros.Add("O campo 'telefone' não pode estar vazio");
 
-            if (string.IsNullOrEmpty(Email)) listaErros.Add("O campo 'email' não pode estar vazio");
+            Regex validarEmail = new Regex("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
+            if (string.IsNullOrWhiteSpace(Email) || !validarEmail.IsMatch(Email))
+                listaErros.Add("O campo 'email' não pode estar vazio");
 
             return listaErros;
         }

@@ -1,9 +1,6 @@
 ﻿using FestasInfantis.Dominio.ModuloAluguel;
 using FestasInfantis.Dominio.ModuloCliente;
-using FestasInfantis.Dominio.ModuloItemTema;
 using FestasInfantis.Dominio.ModuloTema;
-using FestasInfantis.WinFormsApp.ModuloItemTema;
-using FestasInfantis.WinFormsApp.ModuloTema;
 
 namespace FestasInfantis.WinFormsApp.ModuloAluguel
 {
@@ -31,11 +28,10 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
             {
                 EntidadeAluguel entidade = dialog.Aluguel;
 
-                RepositorioAluguel.Inserir(entidade);
-
                 entidade.Tema.AdicionarAluguel(entidade);
-
                 entidade.Cliente.AdicionarAluguel(entidade);
+
+                RepositorioAluguel.Inserir(entidade);
 
                 CarregarEntidades();
             }
@@ -63,12 +59,15 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             if (opcao == DialogResult.OK)
             {
+                //EntidadeTema entidadeTema = dialog.Aluguel.Tema;
                 if (entidade.Tema != dialog.Aluguel.Tema)
                 {
                     entidade.Tema.RemoverAluguel(entidade);
 
                     dialog.Aluguel.Tema.AdicionarAluguel(entidade);
                 }
+
+                //EntidadeCliente entidadeCliente = dialog.Aluguel.Cliente;
 
                 if (entidade.Cliente != dialog.Aluguel.Cliente)
                 {
@@ -104,10 +103,6 @@ namespace FestasInfantis.WinFormsApp.ModuloAluguel
 
             if (opcao == DialogResult.OK)
             {
-                entidade.Tema.RemoverAluguel(entidade);
-
-                entidade.Cliente.RemoverAluguel(entidade);
-
                 RepositorioAluguel.Excluir(entidade);
 
                 CarregarEntidades();

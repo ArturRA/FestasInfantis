@@ -5,9 +5,9 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 {
     public partial class DialogAdicionar : Form
     {
-        private EntidadeTema tema;
+        private EntidadeTema entidadeTema;
 
-        private List<EntidadeItemTema> itens;
+        private List<EntidadeItemTema> ItensTema { get; set; }
 
         public DialogAdicionar(List<EntidadeItemTema> entidadeItemTemas)
         {
@@ -15,7 +15,8 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
 
             this.ConfigurarDialog();
 
-            itens= entidadeItemTemas;
+            ItensTema= entidadeItemTemas;
+            CarregarItens(ItensTema);
         }
 
 
@@ -23,51 +24,38 @@ namespace FestasInfantis.WinFormsApp.ModuloTema
         {
             get
             {
-                return tema;
+                return entidadeTema;
             }
             set
             {
-                tema = value;
-                lblTema.Text = tema.Nome;
-                CarregarItens(itens);
+                entidadeTema = value;
+                lblTema.Text = entidadeTema.Nome;
+                MarcarItensDaListBox();
             }
         }
 
         public void CarregarItens(List<EntidadeItemTema> entidades)
         {
-            listItens.Items.AddRange(entidades.ToArray());
-
-            MarcarItensDaListBox();
+            clbItensTema.Items.AddRange(entidades.ToArray());
         }
 
         private void MarcarItensDaListBox()
         {
-
-            if (tema.Itens.Count > 0)
+            for (int i = 0; i < clbItensTema.Items.Count; i++)
             {
-                int i = 0;
-                foreach (EntidadeItemTema e in itens)
-                {
-                    bool marcado = false;
-
-                    if (tema.Itens.Contains(e))
-                    {
-                        listItens.SetItemChecked(i, true);
-                    }
-
-                    i++;
-                }
+                EntidadeItemTema obj = (EntidadeItemTema)clbItensTema.Items[i];
+                clbItensTema.SetItemChecked(i, obj.Temas.Any(e => e.Id == entidadeTema.Id));
             }
         }
 
         public List<EntidadeItemTema> ObterItensMarcados()
         {
-            return listItens.CheckedItems.Cast<EntidadeItemTema>().ToList();
+            return clbItensTema.CheckedItems.Cast<EntidadeItemTema>().ToList();
         }
 
         public List<EntidadeItemTema> ObterItensDesmarcados()
         {
-            return listItens.Items.Cast<EntidadeItemTema>().Except(ObterItensMarcados()).ToList();
+            return clbItensTema.Items.Cast<EntidadeItemTema>().Except(ObterItensMarcados()).ToList();
         }
     }
 }

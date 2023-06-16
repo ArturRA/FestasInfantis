@@ -1,5 +1,4 @@
-﻿using FestasInfantis.Dominio.ModuloItemTema;
-using FestasInfantis.Dominio.ModuloTema;
+﻿using FestasInfantis.Dominio.ModuloTema;
 using System.ComponentModel;
 
 namespace FestasInfantis.WinFormsApp.ModuloTema

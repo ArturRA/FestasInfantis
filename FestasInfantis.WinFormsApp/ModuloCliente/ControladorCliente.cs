@@ -1,12 +1,5 @@
-﻿using FestasInfantis.Dominio.Compartilhado;
-using FestasInfantis.Dominio.ModuloCliente;
-using FestasInfantis.Dominio.ModuloItemTema;
+﻿using FestasInfantis.Dominio.ModuloCliente;
 using FestasInfantis.WinFormsApp.ModuloItemTema;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FestasInfantis.WinFormsApp.ModuloCliente
 {
@@ -37,46 +30,7 @@ namespace FestasInfantis.WinFormsApp.ModuloCliente
                 CarregarEntidades();
             }
         }
-        public override UserControl ObterListagem()
-        {
-            tabelaItemCliente ??= new TabelaItemCliente(RepositorioCliente.SelecionarTodos());
 
-            CarregarEntidades();
-
-            return tabelaItemCliente;
-        }
-        private void CarregarEntidades()
-        {
-            List<EntidadeCliente> Clientes = RepositorioCliente.SelecionarTodos();
-
-            tabelaItemCliente.AtualizarRegistros(Clientes);
-        }
-        public override void Excluir()
-        {
-            EntidadeCliente entidade = tabelaItemCliente.ObterEntidadeSelecionada();
-
-            if (entidade == null)
-            {
-                MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
-                                $"Exclusão de {TipoDoCadastro}s",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation);
-
-                return;
-            }
-
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o {TipoDoCadastro} {entidade.Nome}?",
-                                                          $"Exclusão de {TipoDoCadastro}s",
-                                                          MessageBoxButtons.OKCancel,
-                                                          MessageBoxIcon.Question);
-
-            if (opcaoEscolhida == DialogResult.OK)
-            {
-                RepositorioCliente.Excluir(entidade);
-
-                CarregarEntidades();
-            }
-        }
         public override void Editar()
         {
             EntidadeCliente? entidade = tabelaItemCliente.ObterEntidadeSelecionada();
@@ -103,6 +57,58 @@ namespace FestasInfantis.WinFormsApp.ModuloCliente
 
                 CarregarEntidades();
             }
+        }
+
+        public override void Excluir()
+        {
+            EntidadeCliente? entidade = tabelaItemCliente.ObterEntidadeSelecionada();
+
+            if (entidade == null)
+            {
+                MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
+                                $"Exclusão de {TipoDoCadastro}s",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            if (entidade.Alugueis.Count > 0)
+            {
+                MessageBox.Show($"{TipoDoCadastro} esta sendo utilizada em outro lugar!",
+                                $"Exclusão de {TipoDoCadastro}s",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o {TipoDoCadastro} {entidade.Nome}?",
+                                                          $"Exclusão de {TipoDoCadastro}s",
+                                                          MessageBoxButtons.OKCancel,
+                                                          MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                RepositorioCliente.Excluir(entidade);
+
+                CarregarEntidades();
+            }
+        }
+        
+
+        public override UserControl ObterListagem()
+        {
+            tabelaItemCliente ??= new TabelaItemCliente(RepositorioCliente.SelecionarTodos());
+
+            CarregarEntidades();
+
+            return tabelaItemCliente;
+        }
+        private void CarregarEntidades()
+        {
+            List<EntidadeCliente> Clientes = RepositorioCliente.SelecionarTodos();
+
+            tabelaItemCliente.AtualizarRegistros(Clientes);
         }
     }
 }

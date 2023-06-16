@@ -1,11 +1,4 @@
-﻿using FestasInfantis.Dominio.Compartilhado;
-using FestasInfantis.Dominio.ModuloTema;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using FestasInfantis.Dominio.ModuloTema;
 
 namespace FestasInfantis.Dominio.ModuloItemTema
 {
@@ -36,6 +29,10 @@ namespace FestasInfantis.Dominio.ModuloItemTema
                 erros.Add("Digite um Valor valido");
 
             return erros;
+        }
+        public override void RemoverReferenciasDeMemoria()
+        {
+            this.Temas.ForEach(t => t.RemoverItemTema(this));
         }
 
         public override string? ToString()
